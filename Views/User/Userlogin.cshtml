@@ -1,0 +1,174 @@
+﻿@{
+    ViewBag.Title = "Userlogin";
+    Layout = "~/Views/Shared/_LayoutUser.cshtml";
+}
+
+<nav class="navbar navbar-inverse navbar-fixed-top " style="margin-top:65px;">
+    <div class="container-fluid">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNav">
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="#">Order Now</a>
+        </div>
+        <div>
+            <div class="collapse navbar-collapse" id="myNav">
+                
+                <ul class="nav navbar-nav navbar-right" style="margin-right: 3%; background-color: rgb(35, 35, 35)">
+                    <li><a class="md-trigger" data-modal="modal-eo" id="button3" href="#" onmouseover="    this.style.color = ' #34a58e'" onmouseout="    this.style.color = ' whitesmoke'" style=" font-family: Gabriola; color: whitesmoke; font-size: 20px; margin-top: 10px;"><span class="fa fa-user-md" style="color: #34a58e; font-size: 15px;"></span> Emergency Order</a></li>
+                    <li class="dropdown">
+                        <a href="#" onmouseover="    this.style.color = ' #34a58e'" onmouseout="    this.style.color = ' whitesmoke'" class="dropdown-toggle" data-toggle="dropdown" style=" font-family: Gabriola; color: whitesmoke; font-size: 20px; margin-top: 10px;"><span class="glyphicon glyphicon-user" style="color: #34a58e; font-size: 15px;"></span>Account<span class="caret"></span></a>
+                        <ul class="dropdown-menu" role="menu" style="background-color: rgba(49, 50, 49, 0.9);">
+                            <li><a href="/User/Profile" style="color:white;">Setting</a></li>
+                            <li><a href="/Home/Main" style="color:white;">LogOut</a></li>
+
+                        </ul>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+</nav>
+
+<div class="highlight" style="background-image: url(/images/a.jpg); background-color: white; ">
+    <div class="row" style="margin-left: 20%; margin-right: 20%; color: #505051; font-size: 18px; margin-top: 90px; ">
+        <h1 style="text-align: center; color: #34a58e; font-family: 'Adobe Kaiti Std';font-size:60px;">Upto Flat 50% Off on 20+ Medical Stores!</h1>
+
+    </div>
+    <div class="" style="width:100%;">
+        <div class="form-group">
+            <label class="col-sm-3 control-label"></label>
+            <div class="row">
+                <div class="col-sm-4" style="width: 300px;">
+                    <select name="status" class="control" style="background-color:#333;margin-left:15%;margin-top:40px;">
+                        <option value=" ">Add your location</option>
+                        <option>Chouburji</option>
+                        <option>Gulshan e Ravi</option>
+                        <option>Samnabad</option>
+
+                    </select>
+                </div>
+          <div class="col-sm-4" style=" width:300px; ">
+                    <select name="status" class="control" style="background-color: #333; margin-left:10%;margin-top:40px; ">
+                        <option value=" ">Search medical store</option>
+                        <option>Clinics</option>
+                        <option>Fazal din</option>
+                        <option>Mahmood</option>
+
+                    </select>
+                </div>
+            </div>
+        </div>
+        <br />
+        
+            
+        <button class="btn btn-lg " type="button" style="width: 250px; margin-left:42%;  background-color: rgba(49, 50, 49, 0.66); "><a href="/User/MedicalList" style="text-decoration: none; color: #fff;">Order now</a></button>
+                
+
+        <div class="col-xs-12"></div>
+    </div>
+</div>
+
+
+<!-- How it Works section -->
+<section class="section how-it-works" id="how-it-works">
+    <div class="container">
+        <div class="row text-center">
+            <div class="how-it-works-heading">
+                <h2 class="section-title" >How It Work's</h2>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-12 board">
+
+                <div class="board-inner">
+                    <ul class="nav nav-tabs" id="myTab">
+                        @*<div class="liner"></div>*@
+                        <li class="active">
+                            <a href="#home" aria-controls="home" role="tab" data-toggle="tab" title="User Experience">
+                                <span class="round-tabs one">
+                                    <i class="icon icon-profile-male"></i>
+                                </span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#profile" aria-controls="profile" role="tab" data-toggle="tab" title="Sketch">
+                                <span class="round-tabs two">
+                                    <i class="icon icon-pencil"></i>
+                                </span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#prototyping" aria-controls="prototyping" role="tab" data-toggle="tab" title="Prototyping">
+                                <span class="round-tabs three">
+                                    <i class="icon icon-layers"></i>
+                                </span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#uidesign" aria-controls="uidesign" role="tab" data-toggle="tab" title="UI Design">
+                                <span class="round-tabs four">
+                                    <i class="icon icon-aperture"></i>
+                                </span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#doner" aria-controls="doner" role="tab" data-toggle="tab" title="Development">
+                                <span class="round-tabs five">
+                                    <i class="icon icon-tools-2"></i>
+                                </span>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+                <div class="tab-content">
+                    <div class="tab-pane fade in active" id="home">
+                        <h3 class="head text-center" style="margin-left:11%">Sign Up</h3>
+                        <p class="narrow text-center">
+                            Sign up and get registered!!
+                        </p>
+                       
+                    </div>
+                    <div class="tab-pane fade" id="profile">
+                        <h3 class="head text-center" style="margin-left:11%">Add Location</h3>
+                        <p class="narrow text-center">
+                            Add your current location or the location you want to deliver medicines
+                        </p>
+                        
+                    </div>
+                    <div class="tab-pane fade" id="prototyping">
+                        <h3 class="head text-center" style="margin-left:11%">Select medical Store</h3>
+                        <p class="narrow text-center">
+                            Select medical store from whome you want to deliver medicines.
+                        </p>
+                       
+                    </div>
+                    <div class="tab-pane fade" id="uidesign">
+                        <h3 class="head text-center" style="margin-left:11%">Search your desire medicines</h3>
+                        <p class="narrow text-center">
+                            Search your desire medicien.
+                        </p>
+                        
+                    </div>
+                    <div class="tab-pane fade" id="doner">
+                        <div class="text-center">
+                            <i class="img-intro icon-checkmark-circle"></i>
+                        </div>
+                        <h3 class="head text-center" style="margin-left:11%">Order</h3>
+                        <p class="narrow text-center">
+                            place your order.. and get your medicines at your home comfort
+                        
+                    </div>
+                    <div class="clearfix"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- /How it work -->
+<div style="height:100px;width:100%">
+
+</div>
+

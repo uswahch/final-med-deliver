@@ -1,0 +1,76 @@
+﻿@{
+    ViewBag.Title = "ContactFeedback";
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+}
+
+<div class="row">
+    <div class="col-xs-12" style="height:80px; width:100%"></div>
+</div>
+<div class="row">
+    <div class="col-xs-2"></div>
+    <div class="col-xs-10" style="width: 75%; background-color: black;margin-right:0">
+        <h1>Admin Panel<span class="icon fa-angle-double-left"></span>FeedBack</h1>
+        <ul>
+            <li style="color: black">
+                <input type="text" placeholder="Search By Name" id="name" style="height: 40px; width: 20%; border-radius: 5px; font-family: Gabriola; font-size: 22px; margin-top: 10px; " />
+                <button><span class="icon fa-search"></span></button>
+</li>
+</ul>
+        <ul class="nav nav-tabs">
+            <!--<li class="active"><a data-toggle="tab" href="#home" style="color:gray;">Form</a></li>-->
+            <li><a data-toggle="tab" href="#menu1" style="color: gray;">FeedBack List</a></li>
+        </ul>
+        <div class="container">
+            <div class="tab-content">
+                <div id="menu1" class="tab-pane fade in active">
+                    <div style="overflow:scroll; width:87%; height:250px;">
+                        <div class="row ">
+                            <div class="col-xs-12">
+                                <table class="table table-inverse" style="margin-top: 10px; width: 1500px; height: auto; background-color: rgba(41, 43, 43, 0.59); ">
+                                    <thead>
+                                        <tr>
+                                            <th>#</th>
+                                            <th>Name</th>
+                                            <th>E-mail</th>
+                                            <th>Message</th>
+                                            <th>Operation</th>
+                                        </tr>
+                                        <tr>
+                                            <td>1</td>
+                                            <td>Mahleqa</td>
+                                            <td>mtaamal12@gmail.com</td>
+                                            <td>
+                                                Oh my God who is she?? i got drunk on jealousy
+                                                Oh my God who is she?? i got drunk on jealousy Oh my God who is she?? i got drunk on jealousy Oh my God who is she?? i got drunk on jealousy Oh my God who is she?? i got drunk on jealousy
+                                            </td>
+                                            <td class="dropdown">
+                                                <button class="btn btn-block dropdown-toggle" type="button" data-toggle="dropdown">
+                                                    DELETE
+
+                                                </button>
+
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>2</td>
+                                            <td>Mahleqa</td>
+                                            <td>mtaamal12@gmail.com</td>
+                                            <td>Nice to meet u where u been</td>
+                                            <td class="dropdown">
+                                                <button class="btn btn-block dropdown-toggle" type="button" data-toggle="dropdown">
+                                                    DELETE
+
+                                                </button>
+
+                                            </td>
+                                        </tr>
+                                    </thead>
+                                    <tbody></tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>

@@ -1,0 +1,359 @@
+﻿@{
+    ViewBag.Title = "MedList";
+    Layout = "~/Views/Shared/_LayoutUser.cshtml";
+}
+
+<nav class="navbar navbar-inverse navbar-fixed-top " style="margin-top:65px;">
+    <div class="container-fluid">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNav">
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="#">Medicines</a>
+        </div>
+        <div>
+            <div class="collapse navbar-collapse" id="myNav">
+               
+                <ul class="nav navbar-nav navbar-right" style="margin-right: 3%; background-color: rgb(35, 35, 35)">
+                    <li><a class="md-trigger" data-modal="modal-eo" id="button3" href="#" onmouseover="    this.style.color = ' #34a58e'" onmouseout="    this.style.color = ' whitesmoke'" style=" font-family: Gabriola; color: whitesmoke; font-size: 20px; margin-top: 10px;"><span class="fa fa-user-md" style="color: #34a58e; font-size: 15px;"></span> Emergency Order</a></li>
+                    <li class="dropdown">
+                        <a href="#" onmouseover="    this.style.color = ' #34a58e'" onmouseout="    this.style.color = ' whitesmoke'" class="dropdown-toggle" data-toggle="dropdown" style=" font-family: Gabriola; color: whitesmoke; font-size: 20px; margin-top: 10px;"><span class="glyphicon glyphicon-user" style="color: #34a58e; font-size: 15px;"></span>Account<span class="caret"></span></a>
+                        <ul class="dropdown-menu" role="menu" style="background-color: rgba(49, 50, 49, 0.9);">
+                            <li><a href="/User/Profile" style="color:white;">Setting</a></li>
+                            <li><a href="/Home/Main" style="color:white;">LogOut</a></li>
+
+                        </ul>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+</nav>
+
+<div class="row">
+    <div class="col-sm-2">
+       
+            <ul style="margin-top:170px;">
+                <li style="color: rgba(49, 50, 49, 0.97);"><a href="#section3" onmouseover="    this.style.color = ' #34a58e'" onmouseout="    this.style.color = ' whitesmoke'" style="text-decoration:none;color:white;">Mushtaq Medical Store </a></li>
+                <li style="color: rgba(49, 50, 49, 0.97); margin-top: 15px;"><a href="#section4" onmouseover="    this.style.color = ' #34a58e'" onmouseout="    this.style.color = ' whitesmoke'" style="text-decoration: none; color: white;">Fazal Din & Sons</a></li>
+                <li style="color: rgba(49, 50, 49, 0.97); margin-top: 15px;"><a href="#section5" onmouseover="    this.style.color = ' #34a58e'" onmouseout="    this.style.color = ' whitesmoke'" style="text-decoration: none; color: white;">Muzaffar Medical Store</a></li>
+                <li style="color: rgba(49, 50, 49, 0.97); margin-top: 15px;"><a href="#section6" onmouseover="    this.style.color = ' #34a58e'" onmouseout="    this.style.color = ' whitesmoke'" style="text-decoration: none; color: white;">D.Watson chemist</a></li>
+                <li style="color: rgba(49, 50, 49, 0.97); margin-top: 15px;"><a href="#section7" onmouseover="    this.style.color = ' #34a58e'" onmouseout="    this.style.color = ' whitesmoke'" style="text-decoration: none; color: white;">Servaid Pharmacy</a></li>
+                <li style="color: rgba(49, 50, 49, 0.97); margin-top: 15px;"><a href="#section8" onmouseover="    this.style.color = ' #34a58e'" onmouseout="    this.style.color = ' whitesmoke'" style="text-decoration: none; color: white;">Getwell Medicos</a></li>
+
+
+
+
+            </ul>
+        </div>
+        <div class="col-sm-6">
+
+            <div id="section3" class="container-fluid">
+                <h1>Mushtaq Medical Store - Lahore </h1><br/>
+                <table>
+                    <tr>
+                        <td style="width:40%">
+                            <ul >
+                                <li style="color: black">
+                                    <a href="#section1" style="text-decoration:none">Biotroxone </a>
+                                    <p style="color:white;">
+                                        250 mg <br />Type: Injection	<br />Quantity: 1x1 <br />Price: 101.00 <br />
+                                    </p>
+                                </li>
+                                </ul>
+                        </td> 
+                        <td style="width:40%">
+                            <ul>
+                                <li style="color: black">
+                                    <a href="#section1" style="text-decoration:none">Feci</a>
+                                    <p style="color:white;">
+                                        500 mg <br />Type: Injection <br />Quantity: 1x1 <br />Price: 300.00<br />
+
+                                    </p>
+                                </li>
+                            </ul>
+                        </td>
+                        <td style="width:40%">
+                            <ul>
+                                <li style="color: black">
+                                    <a href="#section2" style="text-decoration:none">Biotroxone </a>
+                                    <p style="color:white;">
+                                        1 gm <br />Type: Injection<br />Quantity: 1x1 <br />Price: 321.00 <br />
+
+                                    </p>
+                                </li>
+                            </ul>
+                        </td>
+                        
+                    </tr>
+                </table>
+            </div>
+
+            <div id="section4" class="container-fluid">
+                <h1>Fazal Din & Sons  - Lahore</h1><br/>
+                <table>
+                    <tr>
+                        <td style="width:40%">
+                            <ul>
+                                <li style="color: black">
+                                    <a href="#section2" style="text-decoration:none">Biotroxone</a>
+                                    <p style="color:white;">
+                                        500 mg <br />Type: Injection<br /> Quantity: 1x1 <br />Price: 170.00 <br />
+                                    </p>
+                                </li>
+                            </ul>
+                        </td>
+                        <td style="width:40%">
+                            <ul>
+                                <li style="color: black">
+                                    <a href="#section2" style="text-decoration:none">Feci</a>
+                                    <p style="color:white;">
+                                        1 gm <br />Type: Injection <br /> Quantity: 1x1<br />Price: 600.00 <br />
+
+                                    </p>
+                                </li>
+                            </ul>
+                        </td>
+                        <td style="width:40%">
+                            <ul>
+                                <li style="color: black">
+                                    <a href="#section2" style="text-decoration:none"> Sulgen</a>
+                                    <p style="color:white;">
+                                        1 gm <br />Type: Injection<br /> Quantity: 1x1<br />Price: 250.00<br />
+
+                                    </p>
+                                </li>
+
+                            </ul>
+                        </td>
+                    </tr>
+                </table>
+            </div>
+
+            <div id="section5" class="container-fluid">
+                <h1>Muzaffar Medical Store - Lahore</h1><br/>
+                <table>
+                    <tr>
+                        <td style="width:40%">
+                            <ul>
+                                <li style="color: black">
+                                    <a href="#section1" style="text-decoration:none">Sulgen</a>
+                                    <p style="color:white;">
+                                        2 gm <br />Type: Injection<br />Quantity: 1x1 <br />Price:  350.00<br />
+
+                                    </p>
+                                </li>
+                            </ul>
+                        </td>
+                        <td style="width:40%">
+                            <ul>
+                                <li style="color: black">
+                                    <a href="#section2" style="text-decoration:none">Genexime </a>
+                                    <p style="color:white;">
+                                        250 mg <br />Type: Injection <br /> Quantity: 1x1 <br />Price: 60.00<br />
+
+                                    </p>
+                                </li>
+                            </ul>
+                        </td>
+                        <td style="width:40%">
+                            <ul>
+                                <li style="color: black;">
+                                    <a href="#section2" style="text-decoration:none"> Genexime </a>
+                                    <p style="color:white;">
+                                        500 mg <br />Type: Injection <br />Quantity: 1x1 <br />Price: 110.00 <br />
+
+                                    </p>
+                                </li>
+
+                            </ul>
+                        </td>
+                    </tr>
+                </table>
+            </div>
+
+            <div id="section6" class="container-fluid">
+                <h1>D.Watson chemist  - Lahore</h1><br/>
+                <table>
+                    <tr>
+                        <td style="width:40%">
+                            <ul>
+                                <li style="color: black">
+                                    <a href="#section1" style="text-decoration:none"> Mixcef</a>
+                                    <p style="color:white;">
+                                        400 mg <br />Type: Capsole<br />Quantity: 1x5<br />Price: 325.00 <br />
+
+                                    </p>
+                                </li>
+                            </ul>
+                        </td>
+                        <td style="width:40%">
+                            <ul>
+                                <li style="color: black">
+                                    <a href="#section2" style="text-decoration:none">Mixcef</a>
+                                    <p style="color:white;">
+                                        200 mg <br />Type: Suspention<br />Quantity: 30 ml<br />Price: 300.00<br />
+
+                                    </p>
+                                </li>
+                            </ul>
+                        </td>
+                        <td style="width:40%">
+                            <ul>
+                                <li style="color: black">
+                                    <a href="#section2" style="text-decoration:none">Mixcef</a>
+                                    <p style="color:white;">
+                                        100 mg <br />Type: Suspention<br />Quantity: 30 ml<br />Price: 150.00<br />
+
+                                    </p>
+                                </li>
+
+                            </ul>
+                        </td>
+                    </tr>
+                </table>
+            </div>
+
+            <div id="section7" class="container-fluid">
+                <h1>Servaid Pharmacy (Pvt) Ltd - Lahore</h1><br/>
+                <table>
+                    <tr>
+                        <td style="width:40%">
+                            <ul >
+                                <li style="color: black">
+                                    <a href="#section1" style="text-decoration:none">Lok</a>
+                                    <p style="color:white;">
+
+                                        5 mg <br />Type: Tablet	<br />Quantity: 2x7<br />Price: 240.00 <br />
+
+                                    </p>
+                                </li>
+                            </ul>
+                        </td>
+                        <td style="width:40%">
+                            <ul>
+                                <li style="color: black">
+                                    <a href="#section2" style="text-decoration:none">Lok</a>
+                                    <p style="color:white;">
+
+                                        10 mg <br />Type: Tablet <br />Quantity: 2x7<br />Price: 310.00 <br />
+
+                                    </p>
+                                </li>
+                            </ul>
+                        </td>
+                        <td style="width:40%">
+                            <ul>
+                                <li style="color: black">
+                                    <a href="#section2" style="text-decoration:none">Blitz</a>
+                                    <p style="color:white;">
+
+                                        250 mg <br />Type: Tablet<br />Quantity: 1x6<br />Price: 150.00 <br />
+
+                                    </p>
+                                </li>
+
+                            </ul>
+                        </td>
+                    </tr>
+                </table>
+            </div>
+
+
+            <div id="section8" class="container-fluid">
+                <h1>Getwell Medicos - Lahore</h1><br/>
+                <table>
+                    <tr>
+                        <td style="width:40%">
+                            <ul >
+                                <li style="color: black">
+                                    <a href="#section1" style="text-decoration:none"> Monarc</a>
+                                    <p style="color:white;">
+                                        250 mg <br />Type: Tablet<br />Quantity: 10s<br />Price: 130.00<br />
+
+                                    </p>
+                                </li>
+                            </ul>
+                        </td>
+                        <td style="width:40%">
+                            <ul>
+                                <li style="color: black">
+                                    <a href="#section2" style="text-decoration:none">Monarc</a>
+                                    <p style="color:white;">
+                                        500 mg <br />Type: Tablet<br />Quantity: 10s<br />Price: 215.00<br />
+
+                                    </p>
+                                </li>
+
+
+                            </ul>
+                        </td>
+                    </tr>
+                </table>
+            </div>
+
+        </div>
+        <div class="col-sm-4">
+            
+                <div class="panel-heading" style="margin-top:130px;">
+                    <h3 class="text-center"><strong>Order summary</strong></h3>
+                </div>
+                <div class="panel-body" style="margin-top:10px;">
+                    <div class="table-responsive">
+                        <table class="table-condensed">
+                            <thead>
+                                <tr>
+                                    <td><strong>Medicine Name</strong></td>
+                                    <td class="text-center"><strong>Medicine Price</strong></td>
+                                    <td class="text-center"><strong>Medicine Quantity</strong></td>
+                                    <td class="text-right"><strong>Total</strong></td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>Panadol</td>
+                                    <td class="text-center">100</td>
+                                    <td class="text-center">2 Tablets</td>
+                                    <td class="text-right">200</td>
+                                </tr>
+                                <tr>
+                                    <td>Flygil</td>
+                                    <td class="text-center">30.00</td>
+                                    <td class="text-center">1 Tablet</td>
+                                    <td class="text-right">30.00</td>
+                                </tr>
+                                <tr>
+                                    <td>Sulgen</td>
+                                    <td class="text-center">200</td>
+                                    <td class="text-center">1 Tablet</td>
+                                    <td class="text-right">200</td>
+                                </tr>
+                                <tr>
+                                    <td class="highrow"></td>
+                                    <td class="highrow"></td>
+                                    <td class="highrow text-center"><strong>Subtotal</strong></td>
+                                    <td class="highrow text-right">430.00</td>
+                                </tr>
+                                <tr>
+                                    <td class="emptyrow"></td>
+                                    <td class="emptyrow"></td>
+                                    <td class="emptyrow text-center"><strong>delivery charges</strong></td>
+                                    <td class="emptyrow text-right">20</td>
+                                </tr>
+                                <tr>
+                                    <td class="emptyrow"><i class="fa fa-barcode iconbig"></i></td>
+                                    <td class="emptyrow"></td>
+                                    <td class="emptyrow text-center"><strong>Total</strong></td>
+                                    <td class="emptyrow text-right">450.00</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+    </div>
+<div style="height:50px;width:100%;margin-top:150px;">
+
+</div>

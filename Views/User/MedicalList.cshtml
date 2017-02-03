@@ -1,0 +1,266 @@
+﻿@{
+    ViewBag.Title = "MedicalList";
+    Layout = "~/Views/Shared/_LayoutUser.cshtml";
+}
+
+<nav class="navbar navbar-inverse navbar-fixed-top " style="margin-top:65px;">
+    <div class="container-fluid">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNav">
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="#">Medical stores</a>
+        </div>
+        <div>
+            <div class="collapse navbar-collapse" id="myNav">
+                <ul class="nav navbar-nav">
+                    <li><a href="#section1">Free Delivery</a></li>
+                    <li><a href="#section2">Delivery with charges</a></li>
+
+                </ul>
+                <ul class="nav navbar-nav navbar-right" style="margin-right: 3%; background-color: rgb(35, 35, 35)">
+                    <li><a class="md-trigger" data-modal="modal-eo" id="button3" href="#" onmouseover="    this.style.color = ' #34a58e'" onmouseout="    this.style.color = ' whitesmoke'" style=" font-family: Gabriola; color: whitesmoke; font-size: 20px; margin-top: 10px;"><span class="fa fa-user-md" style="color: #34a58e; font-size: 15px;"></span> Emergency Order</a></li>
+                    <li class="dropdown">
+                        <a href="#" onmouseover="    this.style.color = ' #34a58e'" onmouseout="    this.style.color = ' whitesmoke'" class="dropdown-toggle" data-toggle="dropdown" style=" font-family: Gabriola; color: whitesmoke; font-size: 20px; margin-top: 10px;"><span class="glyphicon glyphicon-user" style="color: #34a58e; font-size: 15px;"></span>Account<span class="caret"></span></a>
+                        <ul class="dropdown-menu" role="menu" style="background-color: rgba(49, 50, 49, 0.9);">
+                            <li><a href="#" style="color:white;">Setting</a></li>
+                            <li><a href="#" style="color:white;">LogOut</a></li>
+
+                        </ul>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+</nav>
+<div class="main-wrapper">
+
+    <div class="carousel slide" data-ride="carousel" id="main-carousel">
+        <!-- Indicators -->
+        <ol class="carousel-indicators">
+            <li data-target="#main-carousel" data-slide-to="0" class="active"></li>
+            <li data-target="#main-carousel" data-slide-to="1"></li>
+            <li data-target="#main-carousel" data-slide-to="2"></li>
+        </ol>
+        <!-- Slides -->
+        <div class="carousel-inner" role="listbox">
+            <div class="item active" style="width:100%;height:100%;">
+                <img src="/images/slider2.jpg" />
+            </div>
+            <div class="item " style="width: 100%; height: 100%;">
+
+                <img src="/images/slider5.jpg" />
+            </div>
+            <div class="item" style="width: 100%; height: 100%;">
+
+                <img src="/images/slider3.jpg" />
+            </div>
+        </div>
+        <!-- Controls -->
+        <a class="left carousel-control" href="#main-carousel" role="button" data-slide="prev">
+            <span class="fa fa-arrow-left"></span>
+        </a>
+        <a class="right carousel-control" href="#main-carousel" role="button" data-slide="next">
+            <span class="fa fa-arrow-right"></span>
+        </a>
+    </div>
+</div>
+
+
+
+
+
+
+<div id="section1" class="container-fluid">
+    <h1>Free Delivery </h1><br /><br>
+    <!-- Wrapper -->
+    <div id="wrapper">
+        <!-- Main -->
+        <div id="main">
+            <div class="inner">
+
+                <section class="tiles">
+
+                    <article class="style2">
+                        <span class="image">
+                            <img src="~/images/pic09.jpg" />
+                        </span>
+                        <a href="/User/MedList">
+                            <h2><br />Fazal Din & Sons  - Lahore</h2>
+                            <div class="content">
+                                <p>
+                                    +92-42-37325210 <br />Shahrah-e-Quaid-e-Azam, Lahore, Punjab, Pakistan. <br /> Tel:042-37355413 <br />
+                                    Fax: <br /> Email: <br /> Website
+                                </p>
+                            </div>
+                        </a>
+                    </article>
+                    <article class="style5">
+                        <span class="image">
+                            <img src="~/images/pic05.jpg" />
+                        </span>
+                        <a href="/User/MedList">
+                            <h2><br />Mushtaq Medical Store - Lahore </h2>
+                            <div class="content">
+                                <p>
+                                    +92-42-37587246 <br /> Ferozepur Road, Ichhra, Lahore, PunjabPakistan. <br /> Tel:042-37587246 <br />
+                                    Fax: <br /> Email: <br /> Website
+                                </p>
+                            </div>
+                        </a>
+                    </article>
+                    <article class="style3">
+                        <span class="image">
+
+                            <img src="~/images/pic10.jpg" />
+                        </span>
+                        <a href="/User/MedList">
+                            <h2><br />Muzaffar Medical Store - Lahore</h2>
+                            <div class="content">
+                                <p>
+                                    +92-42-37312004  <br /># 7, Imam Din Market, Lohari Gate, LahorePakistan. <br /> Tel:042-37312004  <br />
+                                    Fax: <br /> Email: <br /> Website
+                                </p>
+                            </div>
+                        </a>
+                    </article>
+
+                </section>
+            </div>
+        </div>
+    </div>
+</div>
+<div id="section2" class="container-fluid" style="margin-top:-100px;">
+    <h1>Delivery with Charges</h1><br /><br />
+    <div id="wrapper">
+        <!-- Main -->
+        <div id="main">
+            <div class="inner">
+
+                <section class="tiles">
+                    <article class="style6">
+                        <span class="image">
+                            <img src="~/images/pic06.jpg" alt="" />
+                        </span>
+                        <a href="/User/MedList">
+                            <h2 style="margin-left:-10px;"><br />D.Watson chemist  - Lahore </h2>
+                            <div class="content">
+                                <p>
+                                    +92-42-35835047 <br />Shop # 5-G, Shan Arcade, Barkat Market,<br /> New Garden Town, Lahore, Punjab, Pakistan. <br /> Tel:042-35835047 <br />
+                                    Fax: <br /> Email: <br /> Website
+                                </p>
+                            </div>
+                        </a>
+                    </article>
+                    <article class="style2">
+                        <span class="image">
+                            <img src="~/images/pic07.jpg" alt="" />
+                        </span>
+                        <a href="/User/MedList">
+                            <h2 style="margin-left:-10px;"><br />Servaid Pharmacy (Pvt) Ltd - <br />Lahore</h2>
+                            <div class="content">
+                                <p>
+                                    +92-42-35786160 <br /> Main Market Gulberg, Lahore, Punjab, Pakistan. <br />Tel:042-35786160 <br />
+                                    Fax: <br /> Email: <br /> Website
+                                </p>
+                            </div>
+                        </a>
+                    </article>
+                    <article class="style3">
+                        <span class="image">
+                            <img src="~/images/pic08.jpg" alt="" />
+                        </span>
+                        <a href="/User/MedList">
+                            <h2 style="margin-left:-10px;"><br />Getwell Medicos - Lahore </h2>
+                            <div class="content">
+                                <p>
+                                    +92-42-35417663 <br /># 5/22, Commercial Zone, Karim Block,<br />  Allama Iqbal Town Lahore, Punjab, Pakistan. <br />Tel:042-35417663 <br />
+                                    Fax: <br /> Email: <br /> Website
+                                </p>
+                            </div>
+                        </a>
+                    </article>
+                </section>
+            </div>
+        </div>
+    </div><br />
+    <!--<ul class="nav navbar-nav" style="margin-bottom:60px;">
+         <li>
+             <a href="/User/MedList">D.Watson chemist  - Lahore </a><p>
+                 +92-42-35835047 <br />Shop # 5-G, Shan Arcade, Barkat Market,<br /> New Garden Town, Lahore, Punjab, Pakistan. <br /> Tel:042-35835047 <br />
+                 Fax: <br /> Email: <br /> Website
+             </p>
+         </li>
+         <li>
+             <a href="/User/MedList">Servaid Pharmacy (Pvt) Ltd - Lahore</a>
+             <p>
+                 +92-42-35786160 <br /> Main Market Gulberg, Lahore, Punjab, Pakistan. <br />Tel:042-35786160 <br />
+                 Fax: <br /> Email: <br /> Website
+             </p>
+         </li>
+         <li>
+             <a href="/User/MedList">Getwell Medicos - Lahore </a>
+             <p>
+                 +92-42-35417663 <br /># 5/22, Commercial Zone, Karim Block,<br />  Allama Iqbal Town Lahore, Punjab, Pakistan. <br />Tel:042-35417663 <br />
+                 Fax: <br /> Email: <br /> Website
+             </p>
+         </li>
+
+     </ul>-->
+
+
+</div>
+
+<br /><br />
+<div class="col-lg-3 col-md-4 col-sm-6 col-xs-12" style="margin-top:30px;">
+
+    <div class="hovereffect">
+
+        <img class="img-responsive" src="~/images/del7.jpg" />
+        <div class="overlay">
+
+            <p> Taking medicines regularly is a need of managing medical conditions, it's best not to run out of medicines. </p>
+        </div>
+    </div>
+</div>
+<div class="col-lg-3 col-md-4 col-sm-6 col-xs-12" style="margin-top:30px;">
+    <div class=" hovereffect">
+
+        <img class="img-responsive" src="~/images/del5.jpg" />
+        <div class="overlay">
+            <p>
+                <br />   We are <br />committed to provide safe, reliable and affordable medicines.
+            </p>
+
+        </div>
+    </div>
+</div>
+<div class="col-lg-3 col-md-4 col-sm-6 col-xs-12" style="margin-top:30px;">
+    <div class=" hovereffect">
+
+        <img class="img-responsive" src="~/images/del3.jpg" />
+        <div class="overlay">
+
+            <p>
+                Here we not only <br />provide you with a wide range of medicines,we also offer a wide choice<br /> of products.
+            </p>
+        </div>
+    </div>
+</div>
+<div class="col-lg-3 col-md-4 col-sm-6 col-xs-12" style="margin-top:30px;">
+    <div class=" hovereffect">
+
+        <img class="img-responsive" src="~/images/del2.jpg" />
+        <div class="overlay">
+            <p>
+                <br />  Once you're a <br />Med-Deliver's customer, you'll get medicines at your comfort level.
+            </p>
+
+        </div>
+    </div>
+</div>
+<div style="height:100px;width:100%;margin-top:200px;">
+
+</div><br /><br />

@@ -1,0 +1,555 @@
+﻿<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Admin Panel</title>
+    <script src="~/Scripts/jquery-1.9.1.min.js"></script>
+    <script src="~/Scripts/bootstrap.min.js"></script>
+    <script src="~/Scripts/jquery.min.js"></script>
+    <script src="~/Scripts/skel.min.js"></script>
+    <link href="~/Content/font-awesome.min.css" rel="stylesheet" />
+    <script src="~/Scripts/main.js"></script>
+    <script src="~/Scripts/util.js"></script>
+    <script src="~/Scripts/jquery.poptrox.min.js"></script>
+    <link href="~/Content/bootstrap.min.css" rel="stylesheet" />
+    <meta name="viewport" content="width=device-width" />
+    <title>Med Deliver</title>
+    <link href="~/Content/main.css" rel="stylesheet" />
+
+
+    <link href="~/Content/component.css" rel="stylesheet" />
+    <style>
+        h1 {
+            color: white;
+            font-size: 40px;
+            margin-left: 10px;
+        }
+
+        h3 {
+            width: 130px;
+            height: 50px;
+            -ms-transform: rotate(270deg); /* IE 9 */
+            -moz-transform: rotate(270deg); /* Firefox */
+            -webkit-transform: rotate(270deg); /* Safari and Chrome */
+            -o-transform: rotate(270deg); /* Opera */
+            margin-left: -40px;
+            font-size: 15px;
+            margin-top: 250px;
+        }
+
+        #slideout {
+            position: fixed;
+            top: 65px;
+            left: 0;
+            width: 20px;
+            height: 100%;
+            color: white;
+            background-color: firebrick;
+            -webkit-transition-duration: 0.3s;
+            -moz-transition-duration: 0.3s;
+            -o-transition-duration: 0.3s;
+            transition-duration: 0.3s;
+            -webkit-transition-duration: 0.3s;
+        }
+
+            #slideout:hover {
+                left: 180px;
+                background-color: #34a58e;
+            }
+
+        #slideout_inner {
+            position: fixed;
+            top: 65px;
+            left: -180px;
+            width: 180px;
+            height: 100%;
+            background-color: firebrick;
+            -webkit-transition-duration: 0.3s;
+            -moz-transition-duration: 0.3s;
+            -o-transition-duration: 0.3s;
+            transition-duration: 0.3s;
+        }
+
+        #slideout:hover #slideout_inner {
+            left: 0;
+            background-color: rgba(49, 50, 49, 0.97);
+        }
+
+        .menu, .menu ul {
+            list-style: none;
+            padding: 0;
+        }
+
+            .menu ul {
+                margin: 0;
+            }
+
+            .menu > li {
+                position: relative;
+                display: inline-block;
+                outline: 0;
+            }
+
+        .submenu {
+            position: absolute;
+            left: 0;
+            top: 100%;
+            z-index: 0;
+            overflow: hidden;
+            max-height: 0;
+            /* The transition-delay prevents the menu to disappear before the transition is run backward
+          * It's ~= length of the animation (.6s) + highest item transition delay (466ms) */
+            -webkit-transition: max-height 1ms linear 1s;
+            -moz-transition: max-height 1ms linear 1s;
+            /* A .submenu should be only revealed when hovering the .menu */
+            pointer-events: none;
+        }
+
+        .menu > li:hover .submenu, .menu > li:focus .submenu {
+            pointer-events: auto;
+            z-index: 10;
+            max-height: 2000px;
+            -webkit-transition: none;
+            -moz-transition: none;
+        }
+
+            /* Progressive Anim
+        * ==================================================================
+        * This is a lot of redundant code but the result is worth it
+        * This should be edited for menus with more or much less than 8 items
+        */
+
+            /* forward */
+            .menu > li:hover .submenu li:nth-child(1) {
+                -webkit-transition-delay: 0s;
+                -moz-transition-delay: 0s;
+                -ms-transition-delay: 0s;
+                -o-transition-delay: 0s;
+                transition-delay: 0s;
+            }
+
+            .menu > li:hover .submenu li:nth-child(2) {
+                -webkit-transition-delay: 66ms;
+                -moz-transition-delay: 66ms;
+                -ms-transition-delay: 66ms;
+                -o-transition-delay: 66ms;
+                transition-delay: 66ms;
+            }
+
+            .menu > li:hover .submenu li:nth-child(3) {
+                -webkit-transition-delay: 133ms;
+                -moz-transition-delay: 133ms;
+                -ms-transition-delay: 133ms;
+                -o-transition-delay: 133ms;
+                transition-delay: 133ms;
+            }
+
+            .menu > li:hover .submenu li:nth-child(4) {
+                -webkit-transition-delay: 200ms;
+                -moz-transition-delay: 200ms;
+                -ms-transition-delay: 200ms;
+                -o-transition-delay: 200ms;
+                transition-delay: 200ms;
+            }
+
+            .menu > li:hover .submenu li:nth-child(5) {
+                -webkit-transition-delay: 266ms;
+                -moz-transition-delay: 266ms;
+                -ms-transition-delay: 266ms;
+                -o-transition-delay: 266ms;
+                transition-delay: 266ms;
+            }
+
+            .menu > li:hover .submenu li:nth-child(6) {
+                -webkit-transition-delay: 333ms;
+                -moz-transition-delay: 333ms;
+                -ms-transition-delay: 333ms;
+                -o-transition-delay: 333ms;
+                transition-delay: 333ms;
+            }
+
+            .menu > li:hover .submenu li:nth-child(7) {
+                -webkit-transition-delay: 400ms;
+                -moz-transition-delay: 400ms;
+                -ms-transition-delay: 400ms;
+                -o-transition-delay: 400ms;
+                transition-delay: 400ms;
+            }
+
+            .menu > li:hover .submenu li:nth-child(8) {
+                -webkit-transition-delay: 466ms;
+                -moz-transition-delay: 466ms;
+                -ms-transition-delay: 466ms;
+                -o-transition-delay: 466ms;
+                transition-delay: 466ms;
+            }
+
+        /* backward */
+        .submenu li:nth-child(1) {
+            -webkit-transition-delay: 466ms;
+            -moz-transition-delay: 466ms;
+            -ms-transition-delay: 466ms;
+            -o-transition-delay: 466ms;
+            transition-delay: 466ms;
+        }
+
+        .submenu li:nth-child(2) {
+            -webkit-transition-delay: 400ms;
+            -moz-transition-delay: 400ms;
+            -ms-transition-delay: 400ms;
+            -o-transition-delay: 400ms;
+            transition-delay: 400ms;
+        }
+
+        .submenu li:nth-child(3) {
+            -webkit-transition-delay: 333ms;
+            -moz-transition-delay: 333ms;
+            -ms-transition-delay: 333ms;
+            -o-transition-delay: 333ms;
+            transition-delay: 333ms;
+        }
+
+        .submenu li:nth-child(4) {
+            -webkit-transition-delay: 266ms;
+            -moz-transition-delay: 266ms;
+            -ms-transition-delay: 266ms;
+            -o-transition-delay: 266ms;
+            transition-delay: 266ms;
+        }
+
+        .submenu li:nth-child(5) {
+            -webkit-transition-delay: 200ms;
+            -moz-transition-delay: 200ms;
+            -ms-transition-delay: 200ms;
+            -o-transition-delay: 200ms;
+            transition-delay: 200ms;
+        }
+
+        .submenu li:nth-child(6) {
+            -webkit-transition-delay: 133ms;
+            -moz-transition-delay: 133ms;
+            -ms-transition-delay: 133ms;
+            -o-transition-delay: 133ms;
+            transition-delay: 133ms;
+        }
+
+        .submenu li:nth-child(7) {
+            -webkit-transition-delay: 66ms;
+            -moz-transition-delay: 66ms;
+            -ms-transition-delay: 66ms;
+            -o-transition-delay: 66ms;
+            transition-delay: 66ms;
+        }
+
+        .submenu li:nth-child(8) {
+            -webkit-transition-delay: 0s;
+            -moz-transition-delay: 0s;
+            -ms-transition-delay: 0s;
+            -o-transition-delay: 0s;
+            transition-delay: 0s;
+        }
+
+        /* Default
+        ================================================================= */
+        .submenu li {
+            opacity: 0;
+            -webkit-transition: opacity .4s, -webkit-transform .6s, max-height .6s;
+            -moz-transition: opacity .4s, -moz-transform .6s, max-height .6s;
+            -ms-transition: opacity .4s, -ms-transform .6s, max-height .6s;
+            -o-transition: opacity .4s, -o-transform .6s, max-height .6s;
+            transition: opacity .4s, transform .6s, max-height .6s;
+        }
+
+        .menu > li:hover .submenu li, .menu > li:focus .submenu li {
+            opacity: 1;
+            -webkit-transform: none;
+            -moz-transform: none;
+            -ms-transform: none;
+            -o-transform: none;
+            transform: none;
+        }
+        /* Blind
+        ================================================================= */
+        .blind li {
+            max-height: 0;
+        }
+
+        .menu > li:hover .blind li, .menu > li:focus .blind li {
+            /* This should be changed to the normal height of list-items */
+            max-height: 30px;
+        }
+
+        #close_popup_div {
+            position: absolute;
+            width: 25px;
+            height: 25px;
+            border-radius: 25px;
+            border: 2px solid black;
+            text-align: center;
+            right: 5px;
+            top: 5px;
+            cursor: pointer;
+        }
+
+            #close_popup_div p {
+                margin-top: -1px;
+                font-weight: bold;
+                font-family: sans-serif;
+            }
+    </style>
+</head>
+
+<body style="background-color: rgba(41, 43, 43, 0.25);">
+    <div class="navbar navbar-inverse navbar-fixed-top" style="background-color: rgba(49, 50, 49, 0.97); border-color: rgba(49, 50, 49, 0.94); height: 65px; border-radius: 0; ">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <p class="navbar-brand" style="font-family: Gabriola; font-size: 30px; font-size: 40px; text-transform: uppercase; color: #34a58e;margin-top:10px; text-shadow: rgba(12, 12, 12, 0.5) 0 0 15px, rgba(34, 0, 218, 0.5) 0 0 10px; ">Med<span class="glyphicon glyphicon-plus" style="color: firebrick; font-size: 25px;"></span>Deliver </p>
+        </div>
+        <div class="collapse navbar-collapse" id="myNavbar">
+            <ul class="nav navbar-nav navbar-right" style="margin-right: 3%; background-color: rgba(49, 50, 49, 0.8)">
+                <li class="dropdown">
+                    <a href="#" onmouseover="    this.style.color = ' #34a58e'" onmouseout="    this.style.color = ' whitesmoke'" class="dropdown-toggle" data-toggle="dropdown" style=" font-family: Gabriola; color: whitesmoke; font-size: 20px; margin-top: 10px;"><span class="glyphicon glyphicon-user" style="color: #34a58e; font-size: 15px;"></span>Account<span class="caret"></span></a>
+                    <ul class="dropdown-menu" role="menu" style="background-color: rgba(49, 50, 49, 0.9);">
+
+                        <li><a href="/Admin/AdminProfile" style="color:white;">Setting</a></li>
+                        <li><a href="/Home/Main" style="color:white;">LogOut</a></li>
+
+                    </ul>
+            </ul>
+        </div>
+    </div>
+
+    <div id="slideout">
+        <h3>Admin Panel</h3>
+        <div id="slideout_inner">
+            <br /><br /><br /><br /><br /><br /><br /><br />
+            <!--<div class="form-group">
+
+                <select name="status" class="control" style="background-color:#333;">
+                    <option value=" ">Main Record</option>
+                    <option>Medicines List</option>
+                    <option>Medical Stores List</option>
+                </select>
+            </div>
+            <div class="form-group">
+
+                <select name="status" class="control" style="background-color:#333;">
+                    <option value=" ">Backend Record</option>
+                    <option>User Record</option>
+                    <option>Order List</option>
+                    <option>Medicines List</option>
+                    <option>Medical Stores List</option>
+
+                </select>
+            </div>-->
+            <div id="main" role="main">
+                <ul id="menu2" class="menu">
+                    <li tabindex="0" style="background-color: #141C23; width: 180px; height: 30px; font-size:16px; border-bottom:solid 1px #ffffff; padding-bottom:0.5rem;  text-transform:uppercase; letter-spacing:0.2rem; ">
+                        <b>Main Record</b>
+                        <ul class="submenu blind">
+                            <li style="width: 170px; height: 25px; margin-left: 4px; background-color: #A8C1C1; color: white; font-size: 15px; ">
+                                <a href="/Admin/MedicinesList" onmouseover="    this.style.color = ' #1A5960'" onmouseout="    this.style.color = ' whitesmoke'" style=" text-decoration: none;">&nbsp;Medicine</a>
+                            </li>
+                            <li style="width: 170px; height: auto; margin-left: 4px; background-color: #8AACAC; color: white; font-size: 15px; ">
+                                <a href="/Admin/MedicalStoresList" onmouseover="    this.style.color = ' #1A5960'" onmouseout="    this.style.color = ' whitesmoke'" style=" text-decoration: none;">Medical Stores</a>
+                            </li>
+
+                        </ul>
+                    </li>
+                </ul>
+            </div><br />
+            <div id="main" role="main">
+                <ul id="menu3" class="menu">
+                    <li tabindex="0" style="background-color: #141C23; width: 180px; height: 30px; font-size:16px; border-bottom:solid 1px #ffffff; padding-bottom:0.5rem;  text-transform:uppercase; letter-spacing:0.2rem; ">
+                        Back Record
+                        <ul class="submenu blind">
+                            <li style="width: 170px; height: 25px; margin-left: 4px; background-color: #A8C1C1; color: white; font-size: 15px; ">
+                                <a href="/Admin/UserRecord" onmouseover="    this.style.color = ' #1A5960'" onmouseout="    this.style.color = ' whitesmoke'" style=" text-decoration: none;">&nbsp;User Record</a>
+                            </li>
+                            <li style="width: 170px; height: 25px; margin-left: 4px; background-color: #A8C1C1; color: white; font-size: 15px; ">
+                                <a href="/Admin/EmergencyOrder" onmouseover="    this.style.color = ' #1A5960'" onmouseout="    this.style.color = ' whitesmoke'" style=" text-decoration: none;">&nbsp;Emergency</a>
+                            </li>
+                            <li style="width: 170px; height: 25px; margin-left: 4px; background-color: #567A7A; color: white;  font-size: 15px; ">
+                                <a href="/Admin/OrderInvoices" onmouseover="    this.style.color = ' #1A5960'" onmouseout="    this.style.color = ' whitesmoke'" style=" text-decoration: none;">&nbsp;Invoices</a>
+                            </li>
+                            <li style="width: 170px; height: 25px; margin-left: 4px; background-color: rgb(70, 103, 103); color: white;  font-size: 15px; ">
+                                <a href="/Admin/ContactFeedback" onmouseover="    this.style.color = ' #1A5960'" onmouseout="    this.style.color = ' whitesmoke'" style=" text-decoration: none;">&nbsp;FeedBack</a>
+                            </li>
+                        </ul>
+
+                    </li>
+                </ul>
+            </div><br /><br /><br /><br />
+            <div id="main" role="main">
+                <ul id="menu3" class="menu">
+                    <li tabindex="0" style="background-color: #141C23; width: 180px; height: 30px; font-size:16px; border-bottom:solid 1px #ffffff; padding-bottom:0.5rem;  text-transform:uppercase; letter-spacing:0.2rem; ">Order List
+
+                        <ul class="submenu blind">
+                            <li style="width: 170px; height: 25px; margin-left: 4px; background-color: #A8C1C1; color: white; font-size: 15px; ">
+                                <a href="/Admin/PendingOrderList" onmouseover="    this.style.color = ' #1A5960'" onmouseout="    this.style.color = ' whitesmoke'" style=" text-decoration: none;">&nbsp;Pending </a>
+                            </li>
+                            <li style="width: 170px; height: 25px; margin-left: 4px; background-color: #567A7A; color: white; font-size: 15px; ">
+                                <a href="/Admin/RecievedOrderList" onmouseover="    this.style.color = ' #1A5960'" onmouseout="    this.style.color = ' whitesmoke'" style=" text-decoration: none;">&nbsp;Recieved </a>
+                            </li>
+                            <li style="width: 170px; height: 25px; margin-left: 4px; background-color: rgb(70, 103, 103); color: white;  font-size: 15px; ">
+                                <a href="/Admin/CancelOrderList" onmouseover="    this.style.color = ' #1A5960'" onmouseout="    this.style.color = ' whitesmoke'" style=" text-decoration: none;">&nbsp;Cancel</a>
+                            </li>
+
+
+                        </ul>
+                    </li>
+                </ul>
+            </div><br />
+
+            <!--<a href="/Admin/UserRecord" onmouseover="    this.style.color = ' #34a58e'" onmouseout="    this.style.color = ' whitesmoke'" style="color: white; margin-left: 10%; text-decoration: none; font-size: 15px;">Users Record</a>
+             <br />
+             <br />
+             <a href="/Admin/OrderList" onmouseover="    this.style.color = ' #34a58e'" onmouseout="    this.style.color = ' whitesmoke'" style="color: white; margin-left: 10%; text-decoration: none; font-size: 15px;">Orders List</a>
+             <br />
+             <br />
+             <a href="/Admin/MedicinesList" onmouseover="    this.style.color = ' #34a58e'" onmouseout="    this.style.color = ' whitesmoke'" style="color: white; margin-left: 10%; text-decoration: none; font-size: 15px;">Medicines List</a>
+             <br />
+             <br />
+             <a href="/Admin/MedicalStoresList" onmouseover="    this.style.color = ' #34a58e'" onmouseout="    this.style.color = ' whitesmoke'" style="color: white; margin-left: 10%; text-decoration: none; font-size: 15px;">Medical Stores List</a>
+             <br />
+             <br />-->
+        </div>
+    </div>
+
+    <div>
+        @RenderBody()
+    </div>
+    <!-- Wrapper -->
+    <div class="md-modal md-effect-28" id="modal-28">
+        <div class="md-contentrec">
+            <h1 style="color: white; font-family: 'Adobe Kaiti Std'; margin-left: 40%; font-size: 200%;"><b>Recieved</b></h1>
+
+            <input type="text" placeholder="User Name" id="fname" style="height: 40px; width: 40%; font-family: Gabriola; font-size: 22px; background: rgba(255, 255, 255, 0.66); border-radius: 5px; margin-top: 10px; margin-right: 5px; margin-left: 8%; " />
+            <input type="text" placeholder="First Name" id="lname" style="height: 40px; width: 40%; font-family: Gabriola; font-size: 22px; background: rgba(255, 255, 255, 0.66); border-radius: 5px; margin-top: 10px; margin-right: 5px;" /><br />
+            <input type="text" placeholder="Last Name" id="fname" style="height: 40px; width: 40%; font-family: Gabriola; font-size: 22px; background: rgba(255, 255, 255, 0.66); border-radius: 5px; margin-top: 10px; margin-right: 5px; margin-left: 8%; " />
+            <input type="text" placeholder="Medicine Name" id="lname" style="height: 40px; width: 40%; font-family: Gabriola; font-size: 22px; background: rgba(255, 255, 255, 0.66); border-radius: 5px; margin-top: 10px; margin-right: 5px;" /><br />
+            <input type="email" placeholder="E-mail Address" id="mail" style="height: 40px; width: 81.3%; font-family: Gabriola; font-size: 22px; background: rgba(255, 255, 255, 0.66); border-radius: 5px; margin-top: 10px; margin-right: 5px; margin-left: 8%; " /><br />
+            <input type="text" placeholder="Address" id="mail" style="height: 40px; width: 81.3%; font-family: Gabriola; font-size: 22px; background: rgba(255, 255, 255, 0.66); border-radius: 5px; margin-top: 10px; margin-right: 5px; margin-left: 8%; " /><br />
+
+            <input type="tel" placeholder="Contact No" id="fname" style="height: 40px; width: 40%; font-family: Gabriola; font-size: 22px; background: rgba(255, 255, 255, 0.66); border-radius: 5px; margin-top: 10px; margin-right: 5px; margin-left: 8%; " />
+            <input type="tel" placeholder="Alt No" id="lname" style="height: 40px; width: 40%; font-family: Gabriola; font-size: 22px; background: rgba(255, 255, 255, 0.66); border-radius: 5px; margin-top: 10px; margin-right: 5px;" /><br />
+            <input type="text" placeholder="Amount Of Medicine" id="fname" style="height: 40px; width: 40%; font-family: Gabriola; font-size: 22px; background: rgba(255, 255, 255, 0.66); border-radius: 5px; margin-top: 10px; margin-right: 5px; margin-left: 8%; " />
+            <input type="text" placeholder="Order Number" id="lname" style="height: 40px; width: 40%; font-family: Gabriola; font-size: 22px; background: rgba(255, 255, 255, 0.66); border-radius: 5px; margin-top: 10px; margin-right: 5px;" /><br />
+
+
+            <br /><br /><button class="btn btn-lg  " type="button" style="margin-left: 41%; width: auto; height: 40px; color: #fff; font-family: 'Adobe Kaiti Std';margin-bottom:20px; ">Save</button>
+            <div class="md-close" id="close_popup_div"><p>x</p></div>
+
+        </div>
+    </div>
+
+    <script src="~/Scripts/classie.js"></script>
+    <script src="~/Scripts/modalEffects.js"></script>
+
+    <script>
+        // this is important for IEs
+        var polyfilter_scriptpath = '/js/';
+    </script>
+    <div class="md-modal md-effect-29" id="modal-29">
+        <div class="md-contentcan">
+            <h1 style="color: white; font-family: 'Adobe Kaiti Std'; margin-left: 40%; font-size: 200%;"><b>Cancel</b></h1>
+
+            <input type="text" placeholder="User Name" id="fname" style="height: 40px; width: 40%; font-family: Gabriola; font-size: 22px; background: rgba(255, 255, 255, 0.66); border-radius: 5px; margin-top: 10px; margin-right: 5px; margin-left: 8%; " />
+            <input type="text" placeholder="First Name" id="lname" style="height: 40px; width: 40%; font-family: Gabriola; font-size: 22px; background: rgba(255, 255, 255, 0.66); border-radius: 5px; margin-top: 10px; margin-right: 5px;" /><br />
+            <input type="text" placeholder="Last Name" id="fname" style="height: 40px; width: 40%; font-family: Gabriola; font-size: 22px; background: rgba(255, 255, 255, 0.66); border-radius: 5px; margin-top: 10px; margin-right: 5px; margin-left: 8%; " />
+            <input type="text" placeholder="Medicine Name" id="lname" style="height: 40px; width: 40%; font-family: Gabriola; font-size: 22px; background: rgba(255, 255, 255, 0.66); border-radius: 5px; margin-top: 10px; margin-right: 5px;" /><br />
+            <input type="email" placeholder="E-mail Address" id="mail" style="height: 40px; width: 81.3%; font-family: Gabriola; font-size: 22px; background: rgba(255, 255, 255, 0.66); border-radius: 5px; margin-top: 10px; margin-right: 5px; margin-left: 8%; " /><br />
+            <input type="text" placeholder="Address" id="mail" style="height: 40px; width: 81.3%; font-family: Gabriola; font-size: 22px; background: rgba(255, 255, 255, 0.66); border-radius: 5px; margin-top: 10px; margin-right: 5px; margin-left: 8%; " /><br />
+
+            <input type="tel" placeholder="Contact No" id="fname" style="height: 40px; width: 40%; font-family: Gabriola; font-size: 22px; background: rgba(255, 255, 255, 0.66); border-radius: 5px; margin-top: 10px; margin-right: 5px; margin-left: 8%; " />
+            <input type="tel" placeholder="Alt No" id="lname" style="height: 40px; width: 40%; font-family: Gabriola; font-size: 22px; background: rgba(255, 255, 255, 0.66); border-radius: 5px; margin-top: 10px; margin-right: 5px;" /><br />
+            <input type="text" placeholder="Amount Of Medicine" id="fname" style="height: 40px; width: 40%; font-family: Gabriola; font-size: 22px; background: rgba(255, 255, 255, 0.66); border-radius: 5px; margin-top: 10px; margin-right: 5px; margin-left: 8%; " />
+            <input type="text" placeholder="Order Number" id="lname" style="height: 40px; width: 40%; font-family: Gabriola; font-size: 22px; background: rgba(255, 255, 255, 0.66); border-radius: 5px; margin-top: 10px; margin-right: 5px;" /><br />
+
+
+            <br /><br /><button class="btn btn-lg  " type="button" style="margin-left: 41%; width: auto; height: 40px; color: #fff; font-family: 'Adobe Kaiti Std';margin-bottom:20px; ">Save</button>
+            <div class="md-close" id="close_popup_div"><p>x</p></div>
+
+        </div>
+    </div>
+
+    <script src="~/Scripts/classie.js"></script>
+    <script src="~/Scripts/modalEffects.js"></script>
+
+    <script>
+        // this is important for IEs
+        var polyfilter_scriptpath = '/js/';
+    </script>
+    <div class="md-modal md-effect-30" id="modal-30">
+        <div class="md-content31">
+            <h1 style="color: white; font-family: 'Adobe Kaiti Std'; margin-left: 40%; font-size: 200%;"><b>Pending</b></h1>
+
+            <input type="text" placeholder="User Name" id="fname" style="height: 40px; width: 40%; font-family: Gabriola; font-size: 22px; background: rgba(255, 255, 255, 0.66); border-radius: 5px; margin-top: 10px; margin-right: 5px; margin-left: 8%; " />
+            <input type="text" placeholder="First Name" id="lname" style="height: 40px; width: 40%; font-family: Gabriola; font-size: 22px; background: rgba(255, 255, 255, 0.66); border-radius: 5px; margin-top: 10px; margin-right: 5px;" /><br />
+            <input type="text" placeholder="Last Name" id="fname" style="height: 40px; width: 40%; font-family: Gabriola; font-size: 22px; background: rgba(255, 255, 255, 0.66); border-radius: 5px; margin-top: 10px; margin-right: 5px; margin-left: 8%; " />
+            <input type="text" placeholder="Medicine Name" id="lname" style="height: 40px; width: 40%; font-family: Gabriola; font-size: 22px; background: rgba(255, 255, 255, 0.66); border-radius: 5px; margin-top: 10px; margin-right: 5px;" /><br />
+            <input type="email" placeholder="E-mail Address" id="mail" style="height: 40px; width: 81.3%; font-family: Gabriola; font-size: 22px; background: rgba(255, 255, 255, 0.66); border-radius: 5px; margin-top: 10px; margin-right: 5px; margin-left: 8%; " /><br />
+            <input type="text" placeholder="Address" id="mail" style="height: 40px; width: 81.3%; font-family: Gabriola; font-size: 22px; background: rgba(255, 255, 255, 0.66); border-radius: 5px; margin-top: 10px; margin-right: 5px; margin-left: 8%; " /><br />
+
+            <input type="tel" placeholder="Contact No" id="fname" style="height: 40px; width: 40%; font-family: Gabriola; font-size: 22px; background: rgba(255, 255, 255, 0.66); border-radius: 5px; margin-top: 10px; margin-right: 5px; margin-left: 8%; " />
+            <input type="tel" placeholder="Alt No" id="lname" style="height: 40px; width: 40%; font-family: Gabriola; font-size: 22px; background: rgba(255, 255, 255, 0.66); border-radius: 5px; margin-top: 10px; margin-right: 5px;" /><br />
+            <input type="text" placeholder="Amount Of Medicine" id="fname" style="height: 40px; width: 40%; font-family: Gabriola; font-size: 22px; background: rgba(255, 255, 255, 0.66); border-radius: 5px; margin-top: 10px; margin-right: 5px; margin-left: 8%; " />
+            <input type="text" placeholder="Order Number" id="lname" style="height: 40px; width: 40%; font-family: Gabriola; font-size: 22px; background: rgba(255, 255, 255, 0.66); border-radius: 5px; margin-top: 10px; margin-right: 5px;" /><br />
+
+
+            <br /><br /><button class="btn btn-lg  " type="button" style="margin-left: 41%; width: auto; height: 40px; color: #fff; font-family: 'Adobe Kaiti Std';margin-bottom:20px; ">Save</button>
+            <div class="md-close" id="close_popup_div"><p>x</p></div>
+
+        </div>
+    </div>
+
+    <script src="~/Scripts/classie.js"></script>
+    <script src="~/Scripts/modalEffects.js"></script>
+
+    <script>
+        // this is important for IEs
+        var polyfilter_scriptpath = '/js/';
+    </script>
+    <div class="md-modal md-effect-31" id="modal-31">
+        <div class="md-ccontent32">
+            <h1 style="color: white; font-family: 'Adobe Kaiti Std'; margin-left: 30%; font-size: 200%;"><b>Ivoice Form</b></h1>
+
+            <input type="text" placeholder="User Name" id="fname" style="height: 40px; width: 40%; font-family: Gabriola; font-size: 22px; background: rgba(255, 255, 255, 0.66); border-radius: 5px; margin-top: 10px; margin-right: 5px; margin-left: 8%;" />
+            <input type="text" placeholder="Medicine Name" id="lname" style="height: 40px; width: 40%; font-family: Gabriola; font-size: 22px; background: rgba(255, 255, 255, 0.66); border-radius: 5px; margin-top: 10px; margin-right: 5px;" /><br />
+            <input type="tel" placeholder="Amount Of Medicine" id="num1" style="height: 40px; width: 40%; font-family: Gabriola; font-size: 22px; background: rgba(255, 255, 255, 0.66); border-radius: 5px; margin-top: 10px; margin-right: 5px; margin-left: 8%; " />
+            <input type="tel" placeholder="Price Per One" id="num2" style="height: 40px; width: 40%; font-family: Gabriola; font-size: 22px; background: rgba(255, 255, 255, 0.66); border-radius: 5px; margin-top: 10px; margin-right: 5px; " /><br />
+            <input type="email" placeholder="Total Price" id="mail" style="height: 40px; width: 81.3%; font-family: Gabriola; font-size: 22px; background: rgba(255, 255, 255, 0.66); border-radius: 5px; margin-top: 10px; margin-right: 5px; margin-left: 8%; " /><br />
+            <input type="date" placeholder="date" id="date" style="height: 40px; width: 81.3%; border-radius: 5px; font-family: Gabriola; font-size: 22px; background: rgba(255, 255, 255, 0.66); margin-top: 10px; margin-right: 5px; margin-left: 8%; " />
+
+            <select name="status" class="control" style="height: 40px; width: 81.3%; font-family: Gabriola; font-size: 22px; background: rgba(255, 255, 255, 0.66); border-radius: 5px; margin-top: 10px; margin-right: 5px; margin-left: 8%; " />
+            <option value=" ">Status</option>
+            <option>Paid</option>
+            <option>Not Paid</option>
+            <option>Pending</option>
+            <option>Cancel</option>
+
+            </select>
+            <br /><br /><button class="btn btn-lg  " type="button" style="margin-left: 41%; width: auto; height: 40px; color: #fff; font-family: 'Adobe Kaiti Std';margin-bottom:20px; ">Save</button>
+
+            <div class="md-close" id="close_popup_div"><p>x</p></div>
+
+        </div>
+    </div>
+
+    <script src="~/Scripts/classie.js"></script>
+    <script src="~/Scripts/modalEffects.js"></script>
+
+    <script>
+        // this is important for IEs
+        var polyfilter_scriptpath = '/js/';
+    </script>
+
+
+
+</body>
+</html>

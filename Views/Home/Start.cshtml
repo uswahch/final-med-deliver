@@ -1,0 +1,79 @@
+﻿@{
+    ViewBag.Title = "Start";
+}
+
+<html>
+<head>
+    <title>Med-Deliver</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+    <link href="~/Content/main1.css" rel="stylesheet" />
+    <script src="~/Scripts/jquery-1.9.1.min.js"></script>
+    <script src="~/Scripts/bootstrap.min.js"></script>
+    <link href="~/Content/bootstrap.min.css" rel="stylesheet" />
+
+    <!--[if lte IE 9]><link rel="stylesheet" href="assets/css/ie9.css" /><![endif]-->
+    <noscript><link rel="stylesheet" href="assets/css/noscript.css" /></noscript>
+    <script>
+        setTimeout(function () {
+            window.location = '/Home/Main';
+        }, 5500);
+
+        var colors = ["rgba(82, 222, 167, 0.3)", "rgba(183, 234, 124, 0.3)", "rgba(233, 140, 140, 0.3)", "rgba(233, 230, 115, 0.3)", "rgba(217, 115, 233, 0.3)", "rgba(126, 105, 234, 0.3)"];
+
+        var currentColor = 0;
+        function switchColor() {
+            if (currentColor >= colors.length) currentColor = 0;
+
+            $('#theDiv').css('background-color', colors[currentColor++]);
+
+            setTimeout(switchColor, 200);
+        }
+
+        switchColor();
+    </script>
+</head>
+<body>
+
+    <!-- Wrapper -->
+    <div id="wrapper">
+   <!-- Header -->
+        <header id="header">
+            <div class="logo">
+                <div id="theDiv" style="border-radius:55px;height:77px;">
+                    <span class="icon fa-plus-square" style="color:white;"></span>
+                </div>
+            </div>
+            <div class="content">
+                <div class="inner">
+                    <h1 style="color:whitesmoke; ">Med-Deliver</h1>
+                    <p>A fully responsive website for medicine delivery </p>
+                </div>
+            </div>
+            <nav>
+                <ul>
+                    <li><a href="#">WELCOME</a></li>
+                </ul>
+            </nav>
+        </header>
+
+
+
+        <!-- Footer -->
+        <footer id="footer">
+            <p class="copyright" style="color: #a8a8bf">&copy; 2017 &nbsp;<a href="https://Med-Dliver.com" style="color: #a8a8bf; text-decoration: none; "onmouseover ="this.style.color = '#34a58e' ; "onmouseout="    this.style.color = '#a8a8bf';">Med-Deliver</a>.</p>
+        </footer>
+
+    </div>
+
+    <!-- BG -->
+    <div id="bg"></div>
+
+    <!-- Scripts -->
+    <script src="assets/js/jquery.min.js"></script>
+    <script src="assets/js/skel.min.js"></script>
+    <script src="assets/js/util.js"></script>
+    <script src="assets/js/main.js"></script>
+
+</body>
+</html>

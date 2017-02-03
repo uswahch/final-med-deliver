@@ -1,0 +1,110 @@
+﻿@{
+    ViewBag.Title = "CancelOrderList";
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+}
+<div class="row">
+    <div class="col-xs-12" style="height:80px; width:100%"></div>
+</div>
+<div class="row">
+    <div class="col-xs-2"></div>
+    <div class="col-xs-10" style="width: 75%; background-color: black;margin-right:0">
+        <h1>Admin Panel<span class="icon fa-angle-double-left"></span>Cancel Order List</h1>
+        <ul >
+            <li style="color: black">
+                <input type="text" placeholder="Search By UserName" id="uname" style="height: 40px; width: 20%; border-radius: 5px; font-family: Gabriola; font-size: 22px; margin-top: 10px; " />
+                <button><span class="icon fa-search"></span></button>
+
+                <input type="text" placeholder="Search By OrderNumber " id="orderno" style="height: 40px; width: 23%; border-radius: 5px; font-family: Gabriola; font-size: 22px; margin-top: 10px; " />
+                <button><span class="icon fa-search"></span></button>
+
+                <input type="text" placeholder="Search By Medicine " id="medname" style="height: 40px; width: 24%; border-radius: 5px; font-family: Gabriola; font-size: 22px; margin-top: 10px; " />
+                <button><span class="icon fa-search"></span></button></li>
+</ul>
+        <ul class="nav nav-tabs">
+            <!--<li class="active"><a data-toggle="tab" href="#home" style="color:gray;">Form</a></li>-->
+            <li><a data-toggle="tab" href="#menu1" style="color: gray;">Cancel List</a></li>
+        </ul>
+        <div class="container ">
+            <div class="tab-content">
+                <div id="menu1" class="tab-pane fade in active">
+                    <div style="overflow:scroll; width:87%; height:250px;">
+                        <div class="row ">
+                            <div class="col-xs-12">
+                                <table class="table table-inverse" style="margin-top: 10px; width: 1500px; height: auto; background-color: rgba(41, 43, 43, 0.59);">
+                                    <thead>
+                                        <tr>
+                                            <th>#</th>
+                                            <th>User Name</th>
+                                            <th>First Name</th>
+                                            <th>Last Name</th>
+                                            <th>Medicine Name</th>
+                                            <th>E-mail</th>
+                                            <th>Address</th>
+                                            <th>Contact No</th>
+                                            <th>Alt NO</th>
+                                            <th>Amount Of Medicicne</th>
+                                            <th>Order Number</th>
+
+                                            <th>Operation</th>
+                                        </tr>
+                                        <tr>
+                                            <td>1</td>
+                                            <td>mahi</td>
+                                            <td>Mahleqa</td>
+                                            <td>Tahir</td>
+                                            <td>Panadol</td>
+                                            <td>mtaamal12343435@gmail.com</td>
+                                            <td>technobird, lahore</td>
+                                            <td>033333333</td>
+                                            <td>03344345434</td>
+                                            <td>3</td>
+                                            <td>19</td>
+
+
+                                            <td class="dropdown">
+                                                <button class="btn btn-block dropdown-toggle" type="button" data-toggle="dropdown">
+                                                    Option
+                                                    <span class="caret"></span>
+                                                </button>
+                                                <ul class="dropdown-menu" style="background-color: rgba(49, 50, 49, 0.9);">
+                                                    <li><a class=" md-trigger" data-modal="modal-29" href="#" style="color:white"> Update</a></li>
+                                                    <li><a href="#" style="color:white">Delete</a></li>
+                                                </ul>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>1</td>
+                                            <td>mahi</td>
+                                            <td>Mahleqa</td>
+                                            <td>Tahir</td>
+                                            <td>Panadol</td>
+                                            <td>mtaamal12343435@gmail.com</td>
+                                            <td>technobird, lahore</td>
+                                            <td>033333333</td>
+                                            <td>03344345434</td>
+                                            <td>3</td>
+                                            <td>19</td>
+
+
+                                            <td class="dropdown">
+                                                <button class="btn btn-block dropdown-toggle" type="button" data-toggle="dropdown">
+                                                    Option
+                                                    <span class="caret"></span>
+                                                </button>
+                                                <ul class="dropdown-menu" style="background-color: rgba(49, 50, 49, 0.9);">
+                                                    <li><a class=" md-trigger" data-modal="modal-29" href="#" style="color:white"> Update</a></li>
+                                                    <li><a href="#" style="color:white">Delete</a></li>
+                                                </ul>
+                                            </td>
+                                        </tr>
+                                    </thead>
+                                    <tbody></tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

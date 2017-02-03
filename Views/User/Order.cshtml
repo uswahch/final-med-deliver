@@ -1,0 +1,210 @@
+﻿@{
+    ViewBag.Title = "Order";
+    Layout = "~/Views/Shared/_LayoutUser.cshtml";
+}
+<div class="navbar navbar-inverse navbar-fixed-top" style="background-color: rgba(49, 50, 49, 0.97); border-color: rgba(49, 50, 49, 0.94); height: 65px; border-radius: 0; ">
+    <div class="navbar-header">
+        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+        </button>
+        <p class="navbar-brand" style="font-family: Gabriola; font-size: 30px; font-size: 40px; text-transform: uppercase; color: #34a58e;margin-top:10px; text-shadow: rgba(12, 12, 12, 0.5) 0 0 15px, rgba(34, 0, 218, 0.5) 0 0 10px; ">Med<span class="glyphicon glyphicon-plus" style="color: firebrick; font-size: 25px;"></span>Deliver </p>
+    </div>
+    <div class="collapse navbar-collapse" id="myNavbar">
+        <ul class="nav navbar-nav navbar-right" style="margin-right: 3%; background-color: rgba(49, 50, 49, 0.8)">
+            <li class="dropdown">
+                <a href="#" onmouseover="    this.style.color = ' #34a58e'" onmouseout="    this.style.color = ' whitesmoke'" class="dropdown-toggle" data-toggle="dropdown" style=" font-family: Gabriola; color: whitesmoke; font-size: 20px; margin-top: 10px;"><span class="glyphicon glyphicon-user" style="color: #34a58e; font-size: 15px;"></span>Account<span class="caret"></span></a>
+                <ul class="dropdown-menu" role="menu" style="background-color: rgba(49, 50, 49, 0.9);"></ul>
+        </ul>
+    </div>
+</div>
+
+
+
+
+<div style="background-color: rgba(49, 50, 49, 0.97); height: 100%; margin-top: 80px; margin-left: 8%; margin-right: 3%; border-radius: 5px;">
+
+    <h1>Order Now!!</h1>
+
+    <div class="container">
+        <div class="tab-content">
+            <div id="home" class="tab-pane fade in active ">
+                <form class="well form-horizontal" action=" " method="post" id="contact_form" style="margin-top:-50px;width:92%;background-color:black">
+                    <fieldset>
+
+
+
+                        <div class="form-group">
+                            <label class="col-sm-3 control-label"></label>
+                            <div class="col-sm-4" style="margin-top:3px;">
+                                <input type="text" class="form-control" name="firstName" placeholder="First name"
+                                       data-fv-row=".col-sm-4"
+                                       data-fv-notempty="true"
+                                       data-fv-notempty-message="The first name is required" />
+                            </div>
+
+                            <div class="col-sm-4" style="margin-top:3px;">
+                                <input type="text" class="form-control" name="lastName" placeholder="Last name"
+                                       data-fv-row=".col-sm-4"
+                                       data-fv-notempty="true"
+                                       data-fv-notempty-message="The last name is required" />
+                            </div>
+                        </div>
+
+
+
+                        <div class="form-group">
+                            <label class="col-sm-3 control-label"></label>
+                            <div class="col-sm-4" style="margin-top:3px;">
+                                <input type="text" class="form-control" name="email" placeholder="E-mail"
+                                       data-fv-notempty="true"
+                                       data-fv-notempty-message="The email address is required"
+                                       data-fv-emailaddress="true"
+                                       data-fv-emailaddress-message="The input is not a valid email address" />
+                            </div>
+
+                            <div class="col-sm-4" style="margin-top:3px;">
+                                <input type="password" class="form-control" name="password" placeholder="Medicine names"
+                                       data-fv-row=".col-sm-4"
+                                       data-fv-notempty="true"
+                                       data-fv-notempty-message="The password is required"
+                                       data-fv-different="true"
+                                       data-fv-different-field="username"
+                                       data-fv-different-message="The password cannot be the same as username" />
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-sm-3 control-label"></label>
+                            <div class="col-sm-4" style="margin-top:3px;">
+                                <input type="text" class="form-control" name="email" placeholder="Contact Number"
+                                       data-fv-notempty="true"
+                                       data-fv-notempty-message="The Contact Number is required" />
+                            </div>
+
+                            <div class="col-sm-4" style="margin-top:3px;">
+                                <input type="password" class="form-control" name="password" placeholder="Alternative Number"
+                                       data-fv-row=".col-sm-4"
+                                       data-fv-notempty="true"
+                                       data-fv-notempty-message="The Contact Number is required" />
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-sm-3 control-label"></label>
+                            <div class="col-sm-4" style="margin-top:-5px;margin-left:608px;">
+                                <input type="text" class="form-control" name="firstName" placeholder="Medical Store"
+                                       data-fv-row=".col-sm-4"
+                                       data-fv-notempty="true"
+                                       data-fv-notempty-message="The first name is required" />
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-sm-3 control-label"></label>
+                            <div class="col-sm-4" style="margin-top:-60px;">
+                                <input type="date" class="form-control" name="date" placeholder="Date of Birth"
+                                       data-fv-notempty="true"
+                                       data-fv-notempty-message="The Date of birth is required" />
+                            </div>
+                            <label class="col-sm-3 control-label"></label>
+                            <div class="col-sm-4" style="margin-top:3px; margin-left:75px">
+                                <textarea class="form-control" name="message" id="message" placeholder="Permanent Address" rows="6" style="background-color:#333;"
+                                          data-fv-notempty="true"
+                                          data-fv-notempty-message="The Address is required"></textarea>
+
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-sm-3 control-label"></label>
+                            <div class="col-sm-4" style="margin-top:-150px;">
+                                <input type="text" class="form-control" name="email" placeholder="Total amount"
+                                       data-fv-notempty="true"
+                                       data-fv-notempty-message="The Contact Number is required" />
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-sm-3 control-label "></label>
+                            <div class="col-sm-4 " style="margin-left:0px; margin-top:-115px;">
+                                <select name="status" class="control" style="background-color:#333;">
+                                    <option value=" ">Status:</option>
+                                    <option>Pending</option>
+                                    <option>Delivered</option>
+                                    <option>Cancel</option>
+
+                                </select>
+                            </div>
+                        </div>
+
+
+                        <div class="form-group">
+                            <div class="col-sm-6 col-sm-offset-3" style="margin-top: -3%; margin-top: -60px;">
+                                <div class="checkbox">
+                                    <label>
+                                        <input type="checkbox" name="agree" value="agree"
+                                               data-fv-notempty="true"
+                                               data-fv-notempty-message="You must agree with the terms and conditions" /> Agree with the terms and conditions
+                                    </label>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <div class="col-xs-9 col-xs-offset-3" style="margin-left:50%;">
+                                <button type="submit" style="background-color:rgba(49, 50, 49, 0.66)" name="signup" value="Sign up">Submit</button>
+                            </div>
+                        </div>
+
+
+                        <script>
+                            // Check the captcha
+                            function checkCaptcha(value, validator, $field) {
+                                var items = $('#captchaOperation').html().split(' '),
+                                    sum = parseInt(items[0]) + parseInt(items[2]);
+                                return value == sum;
+                            }
+
+                            $(document).ready(function () {
+                                // Generate a simple captcha
+                                function randomNumber(min, max) {
+                                    return Math.floor(Math.random() * (max - min + 1) + min);
+                                }
+                                $('#captchaOperation').html([randomNumber(1, 100), '+', randomNumber(1, 200), '='].join(' '));
+
+                                $('#basicBootstrapForm').formValidation();
+                            });
+                        </script>
+
+                    </fieldset>
+                </form>
+            </div>
+
+
+
+            <div id="menu1" class="tab-pane fade">
+                <div class="row">
+                    <div class="col-xs-12">
+                        <table class="table table-inverse" style="margin-top:10px;width:92%;background-color:black">
+                            <thead>
+                                <tr>
+                                    <th>#</th>
+                                    <th>First Name</th>
+                                    <th>Last Name</th>
+                                    <th>E-mail</th>
+                                    <th>Amount</th>
+                                    <th>Contact No</th>
+                                    <th>Names of medicines</th>
+                                    <th>D.O.B</th>
+                                    <th>Address</th>
+                                    <th>Status</th>
+                                </tr>
+                            </thead>
+                            <tbody></tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>
+
+

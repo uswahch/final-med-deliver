@@ -1,0 +1,83 @@
+﻿@{
+    ViewBag.Title = "UserRecord";
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+}
+<div class="row">
+    <div class="col-xs-12" style="height:80px; width:100%"></div>
+</div>
+<div class="row">
+    <div class="col-xs-2"></div>
+    <div class="col-xs-10" style="width: 75%; background-color: black;margin-right:0">
+        <h1>Admin<span class="icon fa-angle-double-left"></span>User Record</h1>
+        <ul>
+            <li style="color: black">
+                <input type="text" placeholder="Search By Name" id="name" style="height: 40px; width: 20%; border-radius: 5px; font-family: Gabriola; font-size: 22px; margin-top: 10px; " />
+                <button><span class="icon fa-search"></span></button>
+
+                <input type="text" placeholder="Search By UserName" id=" uname" style="height: 40px; width: 20%; border-radius: 5px; font-family: Gabriola; font-size: 22px; margin-top: 10px; " />
+                <button><span class="icon fa-search"></span></button>
+
+            </li>
+
+
+        </ul>
+        <ul class="nav nav-tabs">
+          
+            <li><a data-toggle="tab" href="#menu1" style="color: gray;">UserRecord List</a></li>
+        </ul>
+        <div class="container">
+            <div class="tab-content">
+                <div id="menu1" class="tab-pane fade in active ">
+                    <div style="overflow:scroll; width:87%; height:250px;">
+                        <div class="row "><div class="col-xs-12">
+                            <table class="table table-inverse" style="margin-top: 10px; width: 1500px; height: auto; background-color: rgba(41, 43, 43, 0.59); ">
+                                    <thead>
+                                        <tr>
+                                            <th>#</th>
+                                            <th>First Name</th>
+                                             <th>Last Name</th>
+                                            <th>User Name</th>
+                                            <th>E-mail</th>
+                                            <th>Password</th>
+                                            <th>Occupation</th>
+                                            <th>Contact No</th>
+                                            <th>Alt NO</th>
+                                            <th>D.O.B</th>
+                                            <th>Gender</th>
+                                            <th>Operation</th>
+                                        </tr>
+                                    @foreach (var x in Model)
+                                    {
+                                        <tr>
+                                            <td>@x.Id</td>
+                                            <td>@x.First_Name</td>
+                                            <td>@x.Last_Name</td>
+                                            <td>@x.First_Name</td>
+                                            <td>@x.Email</td>
+                                            <td>@x.Password</td>
+                                            <td>@x.Occupation</td>
+                                            <td>@x.Contact_No</td>
+                                            <td>@x.Alt_No</td>
+                                            <td>@x.D_O_B</td>
+                                            <td>@x.Gender</td>
+                                            <td class="dropdown">
+                                                <button class="btn btn-block dropdown-toggle" type="button" data-toggle="dropdown">
+                                                    Delete
+
+                                                </button>
+
+                                            </td>
+                                        </tr>
+                                    }
+                                     
+                                    </thead>
+                                    <tbody></tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

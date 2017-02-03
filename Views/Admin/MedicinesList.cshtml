@@ -1,0 +1,239 @@
+﻿@{
+    ViewBag.Title = "MedicinesList";
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+}
+<div class="row">
+    <div class="col-xs-12" style="height:80px; width:100%"></div>
+</div>
+<div class="row">
+    <div class="col-xs-2"></div>
+    <div class="col-xs-10" style="width: 75%; background-color: black;margin-right:0">
+        <h1>Admin Panel<span class="icon fa-angle-double-left"></span>Medicine List</h1>
+        <ul>
+            <li style="color: black">
+                <input type="text" placeholder="Search By Medicine" id="MedName" style="height: 40px; width: 20%; border-radius: 5px; font-family: Gabriola; font-size: 22px; margin-top: 10px; " />
+                <button><span class="icon fa-search"></span></button>
+
+                <input type="text" placeholder="Search By Category " id=" category" style="height: 40px; width: 20%; border-radius: 5px; font-family: Gabriola; font-size: 22px; margin-top: 10px; " />
+                <button><span class="icon fa-search"></span></button>
+
+                <input type="text" placeholder="Search By Medicine Company" id="medcompany" style="height: 40px; width: 26%; border-radius: 5px; font-family: Gabriola; font-size: 22px; margin-top: 10px; " />
+                <button><span class="icon fa-search"></span></button>
+</li>
+</ul>
+        <ul class="nav nav-tabs">
+            <li class="active"><a data-toggle="tab" href="#home" style="color:gray;">Add New</a></li>
+            <li><a data-toggle="tab" href="#menu1" style="color: gray;">Medicine List</a></li>
+        </ul>
+        <div class="container ">
+            <div class="tab-content">
+                <div id="home" class="tab-pane fade in active ">
+                    <form class="well form-horizontal" action=" " method="post" id="contact_form" style="margin-top: 10px; width: 87%; background-color: rgba(41, 43, 43, 0.59);">
+                        <fieldset>
+
+
+
+                            <div class="form-group">
+                                <label class="col-sm-3 control-label"></label>
+                                <div class="col-sm-4" style="margin-top:3px;">
+                                    <input type="text" class="form-control" name="MedName" placeholder="Medicine name"
+                                           data-fv-row=".col-sm-4"
+                                           data-fv-notempty="true"
+                                           data-fv-notempty-message="The Medicine Name is required" />
+                                </div>
+
+                                <div class="col-sm-4" style="margin-top:3px;">
+                                    <input type="text" class="form-control" name="mg" placeholder="Medicine Weight (i.e: 50mg)"
+                                           data-fv-row=".col-sm-4"
+                                           data-fv-notempty="true"
+                                           data-fv-notempty-message="The Mg is required" />
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="col-sm-3 control-label"></label>
+                                <div class="col-sm-4" style="margin-top:3px;">
+                                    <input type="text" class="form-control" name="Medcompany" placeholder="Medicine Company"
+                                           data-fv-row=".col-sm-4"
+                                           data-fv-notempty="true"
+                                           data-fv-notempty-message="The Medicine Company is required" />
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="col-sm-3 control-label"></label>
+
+                                <div class="col-sm-4" style="margin-top:3px;">
+                                    <input type="text" class="form-control" name="quantity" placeholder="Quantity"
+                                           data-fv-row=".col-sm-4"
+                                           data-fv-notempty="true"
+                                           data-fv-notempty-message="The Quantity is required" />
+                                </div>
+                                <div class="col-sm-4" style="margin-top:3px;">
+                                    <select name="status" class="control" style="background-color:#333;">
+                                        <option value=" ">Type:</option>
+                                        <option>Syrup</option>
+                                        <option>Tablet</option>
+                                        <option>Capsule</option>
+
+                                    </select>
+                                </div>
+
+                            </div>
+                            <div class="form-group">
+                                <label class="col-sm-3 control-label"></label>
+
+                                <div class="col-sm-4" style="margin-top:3px;">
+                                    <input type="text" class="form-control" name="quantity" placeholder="Price per syrup"
+                                           data-fv-row=".col-sm-4"
+                                           data-fv-notempty="true"
+                                           data-fv-notempty-message="The Quantity is required" />
+                                </div><label class="col-sm-3 control-label"></label>
+
+                                <div class="col-sm-4" style="margin-top:3px;">
+                                    <input type="text" class="form-control" name="quantity" placeholder="Price per tablet/capsule"
+                                           data-fv-row=".col-sm-4"
+                                           data-fv-notempty="true"
+                                           data-fv-notempty-message="The Quantity is required" />
+                                </div>
+
+                            </div>
+                            <div class="form-group">
+                                <label class="col-sm-3 control-label"></label>
+                                <div class="col-sm-4" style="margin-top:3px;">
+                                    <input type="text" class="form-control" name="quantity" placeholder="Price per Box"
+                                           data-fv-row=".col-sm-4"
+                                           data-fv-notempty="true"
+                                           data-fv-notempty-message="The Quantity is required" />
+                                </div>
+
+                                <div class="col-sm-4" style="margin-top:3px;">
+                                    <select name="category" class="control" style="background-color:#333;">
+                                        <option value=" ">Category:</option>
+                                        <option>Pain Killer</option>
+                                        <option>Headach</option>
+                                        <option>Antibiotics</option>
+
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <div class="col-sm-6 col-sm-offset-3" style="margin-top:1%;">
+                                    <div class="checkbox">
+                                        <label>
+                                            <input type="checkbox" name="agree" value="agree"
+                                                   data-fv-notempty="true"
+                                                   data-fv-notempty-message="You must agree with the terms and conditions" /> Agree with the terms and conditions
+                                        </label>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <div class="col-xs-9 col-xs-offset-3" style="margin-left:35%;">
+                                    <button type="submit" style="background-color:rgba(49, 50, 49, 0.66)" name="signup" value="Sign up">Submit</button>
+                                </div>
+                            </div>
+
+
+                            <script>
+                                // Check the captcha
+                                function checkCaptcha(value, validator, $field) {
+                                    var items = $('#captchaOperation').html().split(' '),
+                                        sum = parseInt(items[0]) + parseInt(items[2]);
+                                    return value == sum;
+                                }
+
+                                $(document).ready(function () {
+                                    // Generate a simple captcha
+                                    function randomNumber(min, max) {
+                                        return Math.floor(Math.random() * (max - min + 1) + min);
+                                    }
+                                    $('#captchaOperation').html([randomNumber(1, 100), '+', randomNumber(1, 200), '='].join(' '));
+
+                                    $('#basicBootstrapForm').formValidation();
+                                });
+                            </script>
+
+                        </fieldset>
+                    </form>
+                </div>
+
+
+
+                <div id="menu1" class="tab-pane fade">
+                    <div style="overflow:scroll; width:87%; height:250px;">
+                        <div class="row ">
+                            <div class="col-xs-12">
+                                <table class="table table-inverse" style="margin-top: 10px; width: 1500px; height: auto; background-color: rgba(41, 43, 43, 0.59);">
+                                    <thead>
+                                        <tr>
+                                            <th>#</th>
+                                            <th>Medicine Name</th>
+                                            <th>Medicine Weight</th>
+                                            <th>Medicine Company</th>
+                                            <th>Quantity</th>
+                                            <th>Price per syrup</th>
+                                            <th>Price per tablet/capsule</th>
+                                            <th>Price per box</th>
+                                            <th>Type</th>
+                                            <th>Category</th>
+                                            <th>Operation</th>
+                                        </tr>
+                                        <tr>
+                                            <td>1</td>
+                                            <td>panadoll</td>
+                                            <td>5mg</td>
+                                            <td>Plus Med</td>
+                                            <td>1 box</td>
+                                            <td>__</td>
+                                            <td>__</td>
+                                            <td>70Rs</td>
+                                            <td>tablet</td>
+                                            <td>Painkiller</td>
+                                            <td class="dropdown">
+                                                <button class="btn btn-block dropdown-toggle" type="button" data-toggle="dropdown">
+                                                    Option
+                                                    <span class="caret"></span>
+                                                </button>
+                                                <ul class="dropdown-menu" style="background-color: rgba(49, 50, 49, 0.9);">
+                                                    <li><a data-toggle="tab" href="Admin/MedicalList/#home" style="color:white"> Update</a></li>
+                                                    <li><a href="#" style="color:white">Delete</a></li>
+                                                </ul>
+                                            </td>
+
+                                        </tr>
+                                        <tr>
+                                            <td>2</td>
+                                            <td>panadoll</td>
+                                            <td>5mg</td>
+                                            <td>Plus Med</td>
+                                            <td>1 box</td>
+                                            <td>__</td>
+                                            <td>__</td>
+                                            <td>70Rs</td>
+                                            <td>tablet</td>
+                                            <td>Painkiller</td>
+                                            <td class="dropdown">
+                                                <button class="btn btn-block dropdown-toggle" type="button" data-toggle="dropdown">
+                                                    Option
+                                                    <span class="caret"></span>
+                                                </button>
+                                                <ul class="dropdown-menu" style="background-color: rgba(49, 50, 49, 0.9);">
+                                                    <li><a data-toggle="tab" href="Admin/MedicalList/#home" style="color:white"> Update</a></li>
+                                                    <li><a href="#" style="color:white">Delete</a></li>
+                                                </ul>
+                                            </td>
+
+                                        </tr>
+
+                                    </thead>
+                                    <tbody></tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</div>4

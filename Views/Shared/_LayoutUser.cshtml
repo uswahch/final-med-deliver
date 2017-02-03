@@ -1,0 +1,727 @@
+﻿<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <script src="~/Scripts/jquery-1.9.1.min.js"></script>
+    <script src="~/Scripts/bootstrap.min.js"></script>
+    <script src="~/Scripts/jquery.min.js"></script>
+    <script src="~/Scripts/skel.min.js"></script>
+    <link href="~/Content/font-awesome.min.css" rel="stylesheet" />
+    <script src="~/Scripts/main.js"></script>
+    <script src="~/Scripts/util.js"></script>
+    <link href="~/Content/clinics.css" rel="stylesheet" />
+    <script src="~/Scripts/jquery.poptrox.min.js"></script>
+    <link href="~/Content/bootstrap.min.css" rel="stylesheet" />
+    <meta name="viewport" content="width=device-width" />
+    <title>Med Deliver</title>
+    <link href="~/Content/main.css" rel="stylesheet" />
+
+    <link href="~/Content/component.css" rel="stylesheet" />
+    <script></script>
+    <style>
+
+        #close_popup_div {
+            position: absolute;
+            width: 25px;
+            height: 25px;
+            border-radius: 25px;
+            border: 2px solid black;
+            text-align: center;
+            right: 5px;
+            top: 5px;
+            cursor: pointer;
+        }
+
+            #close_popup_div p {
+                margin-top: -1px;
+                font-weight: bold;
+                font-family: sans-serif;
+            }
+
+
+    .height {
+        min-height: 200px;
+        width: auto;
+        
+    }
+
+    .icon {
+        font-size: 47px;
+        color: #5CB85C;
+    }
+
+    .iconbig {
+        font-size: 77px;
+        color: #5CB85C;
+    }
+
+    .table > tbody > tr > .emptyrow {
+        border-top: none;
+    }
+
+    .table > thead > tr > .emptyrow {
+        border-bottom: none;
+    }
+
+    .table > tbody > tr > .highrow {
+        border-top: 3px solid;
+    }
+
+    
+     #section1 {
+        padding-top: 120px;
+        height: 200%;
+        color: #fafafa;
+        background-color: rgba(49, 50, 49, 0.97);
+    }
+
+        #section2 {
+            padding-top: 120px;
+            height: 200%;
+            color: #fafafa;
+            background-color: rgba(49, 50, 49, 0.97);
+        }
+
+        #section3 {
+            padding-top: 120px;
+            height:auto;
+            color: #fafafa;
+            width:100%;
+            background-color: black;
+        }
+
+        #section4 {
+            padding-top: 100px;
+            height: auto;
+            color: #fafafa;
+            background-color: black;
+        }
+
+        #section5 {
+            padding-top: 100px;
+            height: auto;
+            width: 100%;
+            color: #fafafa;
+            background-color: black;
+        }
+        #section6 {
+            padding-top: 100px;
+            height: auto;
+            width: 100%;
+            color: #fafafa;
+            background-color: black;
+        }
+        #section7 {
+            padding-top: 100px;
+            height: auto;
+            width: 100%;
+            color: #fafafa;
+            background-color: black;
+        }
+        #section8 {
+            padding-top: 100px;
+            height: auto;
+            width: 100%;
+            color: #fafafa;
+            background-color: black;
+        }
+
+
+
+
+        .how-it-works {
+            background: #f5f5fa;
+            padding-bottom: 30px;
+            color: black;
+            font-size: 25px;
+            text-align:center;
+        }
+
+        .board {
+            /*width: 75%;
+        margin: 60px auto;
+        margin-bottom: 0;
+        box-shadow: 10px 10px #ccc,-10px 20px #ddd;*/
+        }
+
+            .board .nav-tabs {
+                position: relative;
+                /* border-bottom: 0; */
+                /* width: 80%; */
+                margin: 40px auto;
+                margin-bottom: 0;
+                box-sizing: border-box;
+                margin-left:10%;
+            }
+
+            .board > div.board-inner > .nav-tabs {
+                border: none;
+            }
+
+        p.narrow {
+            width: 60%;
+            margin: 10px auto;
+            text-align:center;
+            margin-left:27%;
+        }
+
+        .liner {
+            height: 2px;
+            background: #ddd;
+            position: absolute;
+            width: 80%;
+            margin: 0 auto;
+            left: 0;
+            right: 0;
+            top: 50%;
+            z-index: 1;
+        }
+
+        .nav-tabs > li.active > a, .nav-tabs > li.active > a:hover, .nav-tabs > li.active > a:focus {
+            color: #555555;
+            cursor: default;
+            /* background-color: #ffffff; */
+            border: 0;
+            border-bottom-color: transparent;
+            outline: 0;
+        }
+
+        span.round-tabs {
+            width: 70px;
+            height: 70px;
+            line-height: 70px;
+            display: inline-block;
+            border-radius: 100px;
+            background: white;
+            z-index: 2;
+            position: absolute;
+            left: 0;
+            text-align: center;
+            font-size: 25px;
+        }
+
+            span.round-tabs.one {
+                border: 2px solid #ddd;
+                color: #ddd;
+            }
+
+        li.active span.round-tabs.one, li.active span.round-tabs.two, li.active span.round-tabs.three, li.active span.round-tabs.four, li.active span.round-tabs.five {
+            background: #69cb95 !important;
+            border: 2px solid #69cb95;
+            color: #fff;
+        }
+
+        span.round-tabs.two {
+            border: 2px solid #ddd;
+            color: #ddd;
+        }
+
+        span.round-tabs.three {
+            border: 2px solid #ddd;
+            color: #ddd;
+        }
+
+        span.round-tabs.four {
+            border: 2px solid #ddd;
+            color: #ddd;
+        }
+
+        span.round-tabs.five {
+            border: 2px solid #ddd;
+            color: #ddd;
+        }
+
+        .nav-tabs > li.active > a span.round-tabs {
+            background: #fafafa;
+        }
+
+        .nav-tabs > li {
+            width: 20%;
+        }
+
+            .nav-tabs > li a {
+                width: 70px;
+                height: 70px;
+                margin: 20px auto;
+                border-radius: 100%;
+                padding: 0;
+            }
+
+                .nav-tabs > li a:hover {
+                    background: transparent;
+                }
+
+        .tab-content {
+        }
+
+        .tab-pane {
+            position: relative;
+            padding-top: 50px;
+        }
+
+        .btn-outline-rounded {
+            padding: 10px 40px;
+            margin: 20px 0;
+            border: 2px solid transparent;
+            border-radius: 25px;
+        }
+
+        .btn.green {
+            background-color: #69cb95;
+            /*border: 2px solid #5cb85c;*/
+            color: #ffffff;
+        }
+
+
+
+        .board {
+            width: 90%;
+            height: auto !important;
+        }
+
+        span.round-tabs {
+            font-size: 16px;
+            width: 50px;
+            height: 50px;
+            line-height: 50px;
+        }
+
+        .tab-content .head {
+            font-size: 20px;
+        }
+
+        .nav-tabs > li a {
+            width: 50px;
+            height: 50px;
+            line-height: 50px;
+        }
+
+        li.active:after {
+            content: " ";
+            position: absolute;
+            left: 35%;
+        }
+
+        .btn-outline-rounded {
+            padding: 12px 20px;
+        }
+
+
+
+
+       
+        
+         h1 {
+            color: white;
+            font-size: 40px;
+            margin-left: 10px;
+        }
+
+
+        .highlight {
+            display: block;
+            position: relative;
+            /*min-height: 800px;*/
+            min-height: 520px;
+            background-repeat: no-repeat;
+            /*padding-top: 200px;*/
+            padding-top: 80px;
+            /*background-size: cover;*/
+        }
+
+
+        .highlight {
+            position: relative;
+            height: 900px;
+            cursor: pointer;
+            background-size: auto 110%;
+            background-position: center center;
+            -moz-transition: background-size 3s ease;
+            -webkit-transition: background-size 3s ease;
+            transition: background-size 3s ease;
+        }
+
+            .highlight:hover {
+                background-size: auto 130%;
+                background-color: white;
+                -moz-transition: background-size 3s ease;
+                -webkit-transition: background-size 3s ease;
+                transition: background-size 3s ease;
+            }
+
+            /*.highlight:before {
+                content: ' ';
+                position: absolute;
+                left: 0;
+                top: 0;
+                right: 0;
+                bottom: 0;
+                background-color: rgba(0, 0, 0, 0.23); /*ye*/
+               /* -moz-transition: background-color 3s ease;
+                -webkit-transition: background-color 3s ease;
+                transition: background-color 3s ease;
+            }
+
+            .highlight:hover:before {
+                background-color: red; /*ye*/
+               /* -moz-transition: background-color 3s ease;
+                -webkit-transition: background-color 3s ease;
+                transition: background-color 3s ease;
+            }
+        */
+            </style>
+       
+    
+    
+    
+     <style class="cp-pen-styles" > .open {
+            position: fixed;
+            top: 40px;
+            right: 40px;
+            width: 50px;
+            height: 50px;
+            display: block;
+            cursor: pointer;
+            transition: opacity 0.2s linear;
+        }
+
+        .open:hover {
+            opacity: 0.8;
+        }
+
+        .open span {
+            display: block;
+            float: left;
+            clear: both;
+            height: 4px;
+            width: 40px;
+            border-radius: 40px;
+            background-color: #34a58e;
+            position: absolute;
+            right: 120px;
+            top: 1110%;
+            overflow: hidden;
+            transition: all 0.4s ease;
+        }
+
+            .open span:nth-child(1) {
+                margin-top: 10px;
+                z-index: 9;
+            }
+
+            .open span:nth-child(2) {
+                margin-top: 25px;
+            }
+
+            .open span:nth-child(3) {
+                margin-top: 40px;
+            }
+
+        .sub-menu {
+            transition: all 0.8s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+            height: 0;
+            width: 0;
+            right: 0;
+            top: 0;
+            position: absolute;
+            background-color: rgba(49, 50, 49, 0.7); /*rgba(38, 84, 133, 0.54);*/
+            border-radius: 50%;
+            z-index: 18;
+            overflow: hidden;
+        }
+
+            .sub-menu li {
+                display: block;
+                float: right;
+                clear: both;
+                height: auto;
+                margin-right: -160px;
+                transition: all 0.5s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+            }
+
+                .sub-menu li:first-child {
+                    margin-top: 230px;
+                }
+
+
+                .sub-menu li:nth-child(1) {
+                    -webkit-transition-delay: 0.05s;
+                }
+
+                .sub-menu li:nth-child(2) {
+                    -webkit-transition-delay: 0.10s;
+                }
+
+                .sub-menu li:nth-child(3) {
+                    -webkit-transition-delay: 0.15s;
+                }
+
+                .sub-menu li:nth-child(4) {
+                    -webkit-transition-delay: 0.20s;
+                }
+
+                .sub-menu li:nth-child(5) {
+                    -webkit-transition-delay: 0.25s;
+                }
+
+
+
+        .oppenned .sub-menu {
+            opacity: 1;
+            height: 400px;
+            width: 400px;
+        }
+
+        .oppenned span:nth-child(2) {
+            overflow: visible;
+        }
+
+        .oppenned span:nth-child(1),
+        .oppenned span:nth-child(3) {
+            z-index: 100;
+            transform: rotate(45deg);
+        }
+
+        .oppenned span:nth-child(1) {
+            transform: rotate(45deg) translateY(12px) translateX(12px);
+        }
+
+        .oppenned span:nth-child(2) {
+            height: 400px;
+            width: 400px;
+            right: -160px;
+            top: -160px;
+            border-radius: 50%;
+            background-color: rgba(38, 84, 133, 0.54);
+        }
+
+        .oppenned span:nth-child(3) {
+            transform: rotate(-45deg) translateY(-10px) translateX(10px);
+        }
+
+        .oppenned li {
+            margin-right: 168px;
+        }
+
+
+
+         .hovereffect {
+             width: 100%;
+             height: 100%;
+             float: left;
+             overflow: hidden;
+             position: relative;
+             text-align: center;
+             cursor: default;
+         }
+
+             .hovereffect .overlay {
+                 position: absolute;
+                 overflow: hidden;
+                 opacity: 0;
+                 filter: alpha(opacity=0);
+                 width: 55%;
+                 height: 81%;
+                 left: 22%;
+                 top: 10%;
+                 border-radius: 80%;
+                 border: 2px solid #FFF;
+                 -webkit-transition: opacity 0.35s, -webkit-transform 0.35s;
+                 transition: opacity 0.35s, transform 0.35s;
+                 -webkit-transform: translate3d(50%,50%,0);
+                 transform: translate3d(50%,50%,0);
+             }
+
+             .hovereffect:hover .overlay {
+                 background-color: rgba(0,0,0,0.3);
+             }
+
+             .hovereffect img {
+                 display: block;
+                 position: relative;
+                 -webkit-transition: all 0.35s;
+                 transition: all 0.35s;
+             }
+
+             .hovereffect:hover img {
+                 filter: url('data:image/svg+xml;charset=utf-8,<svg xmlns="http://www.w3.org/2000/svg"><filter id="filter"><feComponentTransfer color-interpolation-filters="sRGB"><feFuncR type="linear" slope="1.4" /><feFuncG type="linear" slope="1.4" /><feFuncB type="linear" slope="1.4" /></feComponentTransfer></filter></svg>#filter');
+                 filter: brightness(1.4);
+                 -webkit-filter: brightness(1.4);
+             }
+
+             .hovereffect h2 {
+                 text-transform: uppercase;
+                 text-align: center;
+                 position: relative;
+                 font-size: 17px;
+                 padding: 10px;
+                 background-color: transparent;
+                 color: #FFF;
+                 padding: 1em 0;
+                 opacity: 0;
+                 filter: alpha(opacity=0);
+                 -webkit-transition: opacity 0.35s, -webkit-transform 0.35s;
+                 transition: opacity 0.35s, transform 0.35s;
+                 -webkit-transform: translate3d(-150%,-400%,0);
+                 transform: translate3d(-150%,-400%,0);
+             }
+
+             .hovereffect a, .hovereffect p {
+                 color: #FFF;
+                 padding: 1em 0;
+                 opacity: 0;
+                 filter: alpha(opacity=0);
+                 -webkit-transition: opacity 0.35s, -webkit-transform 0.35s;
+                 transition: opacity 0.35s, transform 0.35s;
+                 -webkit-transform: translate3d(-150%,-400%,0);
+                 transform: translate3d(-150%,-400%,0);
+             }
+
+             .hovereffect:hover a, .hovereffect:hover p, .hovereffect:hover h2, .hovereffect:hover .overlay {
+                 opacity: 1;
+                 filter: alpha(opacity=100);
+                 -webkit-transform: translate3d(0,0,0);
+                 transform: translate3d(0,0,0);
+             }
+    </style>
+
+</head>
+
+<body style="background-color: rgba(41, 43, 43, 0.25);">
+    <div class="navbar navbar-inverse navbar-fixed-top" style="background-color: rgba(49, 50, 49, 0.97); border-color: rgba(49, 50, 49, 0.94); height: 65px; border-radius: 0; ">
+        <div class="navbar-header">
+
+            <p class="navbar-brand" style="font-family: Gabriola; font-size: 30px; font-size: 40px; text-transform: uppercase; color: #34a58e;margin-top:10px; text-shadow: rgba(12, 12, 12, 0.5) 0 0 15px, rgba(34, 0, 218, 0.5) 0 0 10px; ">Med<span class="glyphicon glyphicon-plus" style="color: firebrick; font-size: 25px;"></span>Deliver </p>
+        </div>
+
+    </div>
+
+
+    <div style="background-color: rgba(49, 50, 49, 0.97)">
+        @RenderBody()
+    </div>
+    <!-- Wrapper -->
+    <div id="wrapper">
+
+        <!-- Header -->
+        <div class="footer" style="background-color: rgba(49, 50, 49, 0.98); height: 78px;width:101% ">
+            <h1><a href="#" style="text-decoration:none;"><strong>Med-Deliver</strong></a></h1>
+            <nav>
+
+                <ul>
+
+
+                    <li><a href="#footer" class="icon fa-arrow-circle-up" style="text-decoration:none;">Contact</a></li>
+                </ul>
+            </nav>
+
+        </div>
+
+
+        <!-- Footer -->
+        <footer id="footer" class="panel">
+            <div class="inner split">
+                <div>
+                    <section>
+                        <h2>ABOUT US</h2>
+                        <p>We are the path between the medical stores and the user, to provide medicines on the door step of user..</p>
+                    </section>
+                    <section>
+                        <h2>Contact Us On ...</h2>
+                        <ul class="icons">
+
+
+                            <li><a href="https://www.facebook.com/" class="icon fa-facebook" style="text-decoration:none; "><span class="label"></span></a></li>
+                            <!--meddeliver83@gmail.com Allahis1-->
+                            <li><a href="https://accounts.google.com/ServiceLogin?service=mail&passive=true&rm=false&continue=https://mail.google.com/mail/?tab%3Dwm&scc=1&ltmpl=default&ltmplcache=2&emr=1&osid=1" class="icon fa-envelope" style="text-decoration:none;"><span class="label"></span></a></li>
+                            <li><a href="https://login.yahoo.com/?.src=ym&.intl=us&.lang=en-US&.done=https%3a//mail.yahoo.com" class="icon fa-yahoo" style="text-decoration:none; "><span class="label"></span></a></li>
+                            <li><a href="https://twitter.com/?lang=en" class="icon fa-twitter" style="text-decoration:none; "><span class="label"></span></a></li>
+
+                        </ul>
+
+
+                    </section>
+                    <p class="copyright" style="color: #a8a8bf">
+                        &copy; 2016 &nbsp;<a href="#" style="color: #a8a8bf; ">Med-Deliver </a>.
+                    </p>
+                </div>
+
+                <div>
+                    <section>
+                        <h2>Feed Back</h2>
+                        <form method="post" action="#">
+                            <div class="field half first">
+                                <input type="text" name="name" id="name" placeholder="Name" />
+                            </div>
+                            <div class="field half">
+                                <input type="text" name="email" id="email" placeholder="Email" />
+                            </div>
+                            <div class="field">
+                                <textarea name="message" id="message" rows="4" placeholder="Message"></textarea>
+                            </div>
+                            <ul class="actions">
+                                <li><input type="submit" value="Send" class="special" /></li>
+                                <li><input type="reset" value="Reset" /></li>
+                            </ul>
+                        </form>
+
+                    </section>
+                </div>
+            </div>
+        </footer>
+
+    </div>
+
+
+
+    <div class="md-modal md-effect-eo" id="modal-eo">
+        <div class="md-contenteo">
+
+            <h1 style="color: white; font-family: 'Adobe Kaiti Std'; margin-left: 30%; font-size: 200%;"><b>Emergency Order</b></h1>
+
+            <input type="text" placeholder="First Name" id="fname" style="height: 40px; width: 40%; font-family: Gabriola; font-size: 22px; background: rgba(255, 255, 255, 0.66); border-radius: 5px; margin-top: 10px; margin-right: 5px; margin-left: 8%; " />
+            <input type="text" placeholder="Last Name" id="lname" style="height: 40px; width: 40%; font-family: Gabriola; font-size: 22px; background: rgba(255, 255, 255, 0.66); border-radius: 5px; margin-top: 10px; margin-right: 5px;" /><br />
+            <input type="tel" placeholder="Phone Number" id="num1" style="height: 40px; width: 40%; font-family: Gabriola; font-size: 22px; background: rgba(255, 255, 255, 0.66); border-radius: 5px; margin-top: 10px; margin-right: 5px; margin-left: 8%; " />
+            <input type="tel" placeholder="Alt Phone Number" id="num2" style="height: 40px; width: 40%; font-family: Gabriola; font-size: 22px; background: rgba(255, 255, 255, 0.66); border-radius: 5px; margin-top: 10px; margin-right: 5px; " /><br />
+            <input type="email" placeholder=" Address" id="mail" style="height: 40px; width: 81.3%; font-family: Gabriola; font-size: 22px; background: rgba(255, 255, 255, 0.66); border-radius: 5px; margin-top: 10px; margin-right: 5px; margin-left: 8%; " /><br />
+            <input type="password" placeholder="Password" id="pass" style="height: 40px; width: 40%; margin-top: 10px; font-family: Gabriola; font-size: 22px; background: rgba(255, 255, 255, 0.66); border-radius: 5px; margin-right: 5px; margin-left: 8%; " />
+            <input type="password" placeholder="E-mail Adress" id="repass" style="height: 40px; width: 40%; font-family: Gabriola; font-size: 22px; background: rgba(255, 255, 255, 0.66); border-radius: 5px; margin-top: 10px; margin-right: 5px; " /><br />
+            <input type="text" placeholder="Amount" id="amount" style="height: 40px; width: 40%; font-family: Gabriola; font-size: 22px; background: rgba(255, 255, 255, 0.66); border-radius: 5px; margin-top: 10px; margin-right: 5px; margin-left: 8%; " />
+            <select name="status" class="control" style="height: 40px; width: 40%; font-family: Gabriola; font-size: 22px; background: rgba(255, 255, 255, 0.66); border-radius: 5px; margin-top: 10px; margin-right: 5px;">
+                <option value=" ">Medicine Name</option>
+                <option>Panadol</option>
+                <option>Dispirine</option>
+                <option>Antibiotics</option>
+
+            </select>
+            <input type="date" placeholder="date" id="date" style="height: 40px; width: 81.3%; border-radius: 5px; font-family: Gabriola; font-size: 22px; background: rgba(255, 255, 255, 0.66); margin-top: 10px; margin-right: 5px; margin-left: 8%; " />
+            <br />
+            <div class="radio" style="color: white; font-size: 20px; font-family: 'Adobe Kaiti Std'; margin-left: 35%; margin-top: 5px; ">
+                <label>
+                    <input type="radio" name="gender" value="male" /> Male
+                </label>
+
+                <label>
+                    <input type="radio" name="gender" value="female" /> Female
+                </label>
+            </div>
+
+            <button class="btn btn-lg  " type="button" style="margin-left: 41%; width: auto; height: 40px; color: #fff; font-family: 'Adobe Kaiti Std';margin-bottom:20px; ">Send</button>
+            <div class="md-close" id="close_popup_div"><p>x</p></div>
+
+        </div>
+    </div>
+
+    <script src="~/Scripts/classie.js"></script>
+    <script src="~/Scripts/modalEffects.js"></script>
+
+
+    <script>
+        // this is important for IEs
+        var polyfilter_scriptpath = '/js/';
+    </script>
+</body>
+</html>
+
+

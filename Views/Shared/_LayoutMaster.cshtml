@@ -1,0 +1,608 @@
+﻿<!DOCTYPE html>
+
+<html>
+<head>
+    <script src="~/Scripts/jquery-1.9.1.min.js"></script>
+    <script src="~/Scripts/bootstrap.min.js"></script>
+    <script src="~/Scripts/jquery.min.js"></script>
+    <script src="~/Scripts/skel.min.js"></script>
+    <link href="~/Content/font-awesome.min.css" rel="stylesheet" />
+    <script src="~/Scripts/main.js"></script>
+    <script src="~/Scripts/util.js"></script>
+    <script src="~/Scripts/jquery.poptrox.min.js"></script>
+    <link href="~/Content/bootstrap.min.css" rel="stylesheet" />
+    <meta name="viewport" content="width=device-width" />
+    <title>Med Deliver</title>
+    <link href="~/Content/main.css" rel="stylesheet" />
+
+    <link href="~/Content/component.css" rel="stylesheet" />
+
+    <style>
+        #close_popup_div {
+            position: absolute;
+            width: 25px;
+            height: 25px;
+            border-radius: 25px;
+            border: 2px solid black;
+            text-align: center;
+            right: 5px;
+            top: 5px;
+            cursor: pointer;
+        }
+
+            #close_popup_div p {
+                margin-top: -1px;
+                font-weight: bold;
+                font-family: sans-serif;
+            }
+    </style>
+    <style class="cp-pen-styles">
+        .open {
+            position: fixed;
+            top: 40px;
+            right: 40px;
+            width: 50px;
+            height: 50px;
+            display: block;
+            cursor: pointer;
+            transition: opacity 0.2s linear;
+        }
+
+            .open:hover {
+                opacity: 0.8;
+            }
+
+            .open span {
+                display: block;
+                float: left;
+                clear: both;
+                height: 4px;
+                width: 40px;
+                border-radius: 40px;
+                background-color: #34a58e;
+                position: absolute;
+                right: 120px;
+                top: 1110%;
+                overflow: hidden;
+                transition: all 0.4s ease;
+            }
+
+                .open span:nth-child(1) {
+                    margin-top: 10px;
+                    z-index: 9;
+                }
+
+                .open span:nth-child(2) {
+                    margin-top: 25px;
+                }
+
+                .open span:nth-child(3) {
+                    margin-top: 40px;
+                }
+
+        .sub-menu {
+            transition: all 0.8s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+            height: 0;
+            width: 0;
+            right: 0;
+            top: 0;
+            position: absolute;
+            background-color: rgba(49, 50, 49, 0.7); /*rgba(38, 84, 133, 0.54);*/
+            border-radius: 50%;
+            z-index: 18;
+            overflow: hidden;
+        }
+
+            .sub-menu li {
+                display: block;
+                float: right;
+                clear: both;
+                height: auto;
+                margin-right: -160px;
+                transition: all 0.5s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+            }
+
+                .sub-menu li:first-child {
+                    margin-top: 230px;
+                }
+
+
+                .sub-menu li:nth-child(1) {
+                    -webkit-transition-delay: 0.05s;
+                }
+
+                .sub-menu li:nth-child(2) {
+                    -webkit-transition-delay: 0.10s;
+                }
+
+                .sub-menu li:nth-child(3) {
+                    -webkit-transition-delay: 0.15s;
+                }
+
+                .sub-menu li:nth-child(4) {
+                    -webkit-transition-delay: 0.20s;
+                }
+
+                .sub-menu li:nth-child(5) {
+                    -webkit-transition-delay: 0.25s;
+                }
+
+
+
+        .oppenned .sub-menu {
+            opacity: 1;
+            height: 400px;
+            width: 400px;
+        }
+
+        .oppenned span:nth-child(2) {
+            overflow: visible;
+        }
+
+        .oppenned span:nth-child(1),
+        .oppenned span:nth-child(3) {
+            z-index: 100;
+            transform: rotate(45deg);
+        }
+
+        .oppenned span:nth-child(1) {
+            transform: rotate(45deg) translateY(12px) translateX(12px);
+        }
+
+        .oppenned span:nth-child(2) {
+            height: 400px;
+            width: 400px;
+            right: -160px;
+            top: -160px;
+            border-radius: 50%;
+            background-color: rgba(38, 84, 133, 0.54);
+        }
+
+        .oppenned span:nth-child(3) {
+            transform: rotate(-45deg) translateY(-10px) translateX(10px);
+        }
+
+        .oppenned li {
+            margin-right: 168px;
+        }
+    </style>
+</head>
+<body>
+    <div style="width:100%;">
+
+        <div class="navbar navbar-inverse navbar-fixed-top" style="background-color: rgba(49, 50, 49, 0.97); border-color: rgba(49, 50, 49, 0.94); height: 65px; border-radius: 0; ">
+
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+
+                <p class="navbar-brand" style="font-family: Gabriola; font-size: 30px; font-size: 40px; text-transform: uppercase; color: #34a58e;margin-top:10px; text-shadow: rgba(12, 12, 12, 0.5) 0 0 15px, rgba(34, 0, 218, 0.5) 0 0 10px; ">Med<span class="glyphicon glyphicon-plus" style="color: firebrick; font-size: 25px;"></span>Deliver </p>
+            </div>
+            <div class="collapse navbar-collapse" id="myNavbar">
+                <ul class="nav navbar-nav navbar-right" style="margin-right: 3%; background-color: rgba(49, 50, 49, 0.8)">
+                    <!-- <li style=" font-family: Gabriola; font-size: 20px; "><a href=" #" onmouseover="this.style.color = ' #34a58e'" onmouseout="    this.style.color = ' whitesmoke'" style=" margin-top: 12px; color: whitesmoke;">Home</a></li>
+                     <li><a href="#" onmouseover="this.style.color = ' #34a58e'" onmouseout="    this.style.color = ' whitesmoke'" style=" margin-top: 12px; font-family: gabriola; font-size: 20px; color: whitesmoke; ">About</a></li>
+                     <li><a href="#" onmouseover="this.style.color = ' #34a58e'" onmouseout="    this.style.color = ' whitesmoke'" style=" margin-top: 12px; font-family: gabriola; font-size: 20px; color: whitesmoke; ">Sevices</a></li>
+                     <li><a href="#" onmouseover="this.style.color = ' #34a58e'" onmouseout="    this.style.color = ' whitesmoke'" style=" margin-top: 12px; font-family: gabriola; font-size: 20px; color: whitesmoke; ">Order</a></li>
+                     <li><a href="#" onmouseover="this.style.color = ' #34a58e'" onmouseout="    this.style.color = ' whitesmoke'" style=" margin-top: 12px; font-family: gabriola; font-size: 20px; color: whitesmoke; ">Contact Us</a></li>-->
+                    <li><a class="md-trigger" data-modal="modal-14" id="button1" href="#" onmouseover="    this.style.color = ' #34a58e'" onmouseout="    this.style.color = ' whitesmoke'" style=" font-family: Gabriola; color: whitesmoke; font-size: 20px; margin-top: 10px; "><span class="glyphicon glyphicon-user" style="color: #34a58e;font-size:15px;"></span> Sign Up</a></li>
+                    <li><a class="md-trigger" data-modal="modal-13" id="button2" href="#" onmouseover="    this.style.color = ' #34a58e'" onmouseout="    this.style.color = ' whitesmoke'" style=" font-family: Gabriola; color: whitesmoke; font-size: 20px; margin-top: 10px;"><span class="glyphicon glyphicon-log-in" style="color: #34a58e; font-size: 15px;"></span> Login</a></li>
+                    <li><a class="md-trigger" data-modal="modal-eo" id="button3" href="#" onmouseover="    this.style.color = ' #34a58e'" onmouseout="    this.style.color = ' whitesmoke'" style=" font-family: Gabriola; color: whitesmoke; font-size: 20px; margin-top: 10px;"><span class="fa fa-user-md"  style="color: #34a58e; font-size: 15px;"></span> Emergency Order</a></li>
+
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <div class="clearfix"> </div>
+    <div>
+        @RenderBody()
+    </div>
+    <!--<div style="background-image: url(/images/ba.jpg)">
+        <div class="footer" style="background-color: rgba(49, 50, 49, 0.92); width:100%;margin-top:20px;">
+
+            <div class="row">
+                <div class="col-xs-4" style="margin-top: 2%;" >
+                    <h3 style="margin-left: 17%; color: whitesmoke; font-family: Gabriola; font-size: 30px;"><b>About Us</b></h3>
+                    <p style="color: whitesmoke; font-size: 16px; font-family: 'Adobe Kaiti Std';margin-left:18%;">
+                        We are the path between the medical  &nbsp;stores and the user, to provide medicines on the door step of user.
+                    </p><p style="margin-left: 18%;"><a href="#" onmouseover="this.style.color = '#34a58e'" onmouseout="    this.style.color = ' whitesmoke'" style="color: whitesmoke; font-size: 20px; font-family: 'Adobe Kaiti Std'; text-decoration: none;">Read More >> </a></p>
+                    <p style="margin-left: 17%; color: whitesmoke; font-family: Gabriola; font-size: 30px;">Follow Us On..</p>
+                    <ul>
+                        <li style="color: rgba(49, 50, 49, 0.2); margin-left: 17%;">
+                            <a href="https://www.facebook.com/" style="color:white"><img src="/images/icon1.png" style=" height:30px; width:30px;" /></a>
+                            <a href="https://www.google.com.pk/?gws_rd=cr&ei=qjhSWI6VH8vqvASHiJbgDA" style="color:white"><img src="/images/icon5.png" style=" height: 30px; width: 30px; margin-left: 15px;" /></a>
+                            <a href="https://www.skype.com/en/" style="color:white"><img src="/images/icon7.png" style=" height: 30px; width: 30px; margin-left: 15px;" /></a>
+                        </li>
+                    </ul>
+                </div>
+
+                <div class="col-xs-4" style="margin-top: 2%;">
+
+                    <h3 style="color: white; margin-left: 22%; font-family: Gabriola; font-size: 30px;"><b>Contact Us</b></h3>
+                    <ul>
+                        <li style="color: rgba(49, 50, 49, 0.2); margin-left: 16%"><p style="color: whitesmoke; font-size: 14px; font-family: 'Adobe Kaiti Std'; "><span class="glyphicon glyphicon-phone" style="color: #34a58e; "></span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;0320-9469881</p></li>
+                        <li style="color: rgba(49, 50, 49, 0.2); margin-left: 16%;"><p style="color: whitesmoke; white; font-size: 14px; font-family: 'Adobe Kaiti Std'; "><span class="glyphicon glyphicon-phone-alt" style="color: #34a58e; "></span> &nbsp;&nbsp;&nbsp;&nbsp;042-37497212</p></li>
+                        <li style="color: rgba(49, 50, 49, 0.2); margin-left: 16%;"><a href="#" onmouseover="this.style.color = '#34a58e'" onmouseout="    this.style.color = ' whitesmoke'" style="color: whitesmoke; font-size: 14px; font-family: 'Adobe Kaiti Std'; text-decoration: none;"><span class="glyphicon glyphicon-envelope" style="color: #34a58e; "></span><b>&nbsp;&nbsp;&nbsp;&nbsp;Email:</b> med-deliver@mail.com</a></li>
+                        <li style="color: rgba(49, 50, 49, 0.2); margin-top: 8px; margin-left: 16%;"><a href="#" onmouseover="this.style.color = '#34a58e'" onmouseout="    this.style.color = ' whitesmoke'" style="color: whitesmoke; font-size: 14px; font-family: 'Adobe Kaiti Std'; text-decoration: none;"><b style="color: #34a58e; font-family: Arial; font-size: 16px; ">f</b><b>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Facebook</b></i></a></li>
+                        <li style="color: rgba(49, 50, 49, 0.2); margin-top: 2px; margin-left: 16%; "><a href="#" onmouseover="this.style.color = '#34a58e'" onmouseout="    this.style.color = ' whitesmoke'" style="color: whitesmoke; font-size: 14px; font-family: 'Adobe Kaiti Std'; text-decoration: none;"><b style="color: #34a58e; font-family: Arial; font-size: 18px; ">s</b><b>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Skype</b></a></li>
+                        <li style="color: rgba(49, 50, 49, 0.2); margin-top: 5px; margin-left: 16%;"><a href="#" onmouseover="this.style.color = '#34a58e'" onmouseout="    this.style.color = ' whitesmoke'" style="color: whitesmoke; white; font-size: 14px; font-family: 'Adobe Kaiti Std'; text-decoration: none;"><span class="glyphicon glyphicon-print" style="color: #34a58e; "></span>&nbsp;&nbsp;&nbsp;&nbsp;Print</a></li>
+                    </ul>
+                </div>
+                <div class="col-xs-4" style="margin-top: 2%;">
+                    <h3 style="color: white;font-family: Gabriola; font-size: 30px;"><b>Leave A Message</b></h3>
+                    <input type="email" id="email" placeholder=" Your e-mail" style="background-color: rgb(49, 50, 49); margin-left: 2%; width: 30%; height: 30px; border-radius: 5px; color: white; border-color: rgb(49, 50, 49); border-left-color: white; font-size: 12px; " />
+                    <input type="text" id="text" placeholder=" Your name" style="background-color: rgb(49, 50, 49); width: 30%; height: 30px; border-radius: 5px; color: white; border-color: rgb(49, 50, 49); border-left-color: white; font-size: 12px; " />
+                    <textarea class="form-control" rows="7" id="comment" placeholder=" Your message" style="background-color: rgb(49, 50, 49); margin-left: 12px; margin-top: 15px; width: 60%; height: 80px; border-radius: 5px; color: white; border-color: rgb(49, 50, 49); border-left-color: white; font-size: 12px; "></textarea>
+                    <button class="btn " style="width: 60%; height: 35px; background-color: #34a58e; border-color: #34a58e; font-size: 20px; margin-left: 12px; margin-top: 15px; ">Submit</button>
+                </div>
+            </div>
+            <hr style="width:100%;" />
+            <div class="row">
+                <div class="col-xs-12">
+                    <div class="col-xs-6">
+                        <ul>
+                            <li style="color: rgba(49, 50, 49, 0.2); margin-left: 3%;">
+                                <a href="#" onmouseover="this.style.color = '#34a58e'" onmouseout="    this.style.color = 'whitesmoke'" style="color: whitesmoke; font-size: 13px; font-family: 'Adobe Kaiti Std'; text-decoration: none;">Privacy Policy |</a>
+                                <a href="#" onmouseover="this.style.color = '#34a58e'" onmouseout="    this.style.color = 'whitesmoke'" style="color: whitesmoke; font-size: 14px; font-family: 'Adobe Kaiti Std'; text-decoration: none;">&nbsp; Sitemap &nbsp; |</a>
+                                <a href="#" onmouseover="this.style.color = '#34a58e'" onmouseout="    this.style.color = 'whitesmoke'" style="color: whitesmoke; font-size: 13px; font-family: 'Adobe Kaiti Std'; text-decoration: none;">Terms of Use</a>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="col-xs-6">
+                        <p style="margin-left: 30%; color: whitesmoke; font-size: 13px; font-family: 'Adobe Kaiti Std';">Copyright © 2015 Medical Clinic. All Rights Reserved | Design by <a href="#" style="color: whitesmoke;">Us</a>
+                    </div>
+                    <div class="clearfix"> </div>
+                </div>
+            </div>
+        </div>
+    </div>-->
+    <!-- Wrapper -->
+    <div id="wrapper">
+
+        <!-- Header -->
+        <div class="footer" style="background-color: rgba(49, 50, 49, 0.98); height: 78px;width:101% ">
+            <h1><a href="#" style="text-decoration:none;"><strong>Med-Deliver</strong></a></h1>
+            <h1 style="margin-left:66%;margin-top:-5px;">For Order Call Us&nbsp;<span class="glyphicon glyphicon-arrow-right"></span> </h1>
+            <nav>
+
+                <ul>
+
+
+                    <li><a href="#footer" class="icon fa-arrow-circle-up" style="text-decoration:none;">Contact</a></li>
+                </ul>
+                <div class="open">
+
+                    <span class="cls"></span>
+                    <span>
+                        <ul class="sub-menu ">
+
+                            <li><a href="skype:meddeliver83?call"><img src="/images/skypecal.gif" width="100" height="60" style="margin: -15px 1px -5px 0px; border-radius:30px;border-color:whitesmoke;"></a><b style=" font-family: gabriola; color: rgb(9, 245, 197); font-size: 25px; text-decoration: none;">&nbsp;to Make<br> an Emergency Order</b></li>
+
+                        </ul>
+                    </span>
+                    <span class="cls"></span>
+                </div>
+                <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+                <script>
+                    $(document).ready(function () {
+                        $(document).delegate('.open', 'click', function (event) {
+                            $(this).addClass('oppenned');
+                            event.stopPropagation();
+                        })
+                        $(document).delegate('body', 'click', function (event) {
+                            $('.open').removeClass('oppenned');
+                        })
+                        $(document).delegate('.cls', 'click', function (event) {
+                            $('.open').removeClass('oppenned');
+                            event.stopPropagation();
+                        });
+                    });
+                </script>
+
+            </nav>
+
+        </div>
+
+
+        <!-- Footer -->
+        <footer id="footer" class="panel">
+            <div class="inner split">
+                <div>
+                    <section>
+                        <h2>ABOUT US</h2>
+                        <p>We are the path between the medical stores and the user, to provide medicines on the door step of user..</p>
+                    </section>
+                    <section>
+                        <h2>Contact Us On ...</h2>
+                        <ul class="icons">
+
+
+                            <li><a href="https://www.facebook.com/" class="icon fa-facebook" style="text-decoration:none; "><span class="label"></span></a></li>
+                            <!--meddeliver83@gmail.com Allahis1-->
+                            <li><a href="https://accounts.google.com/ServiceLogin?service=mail&passive=true&rm=false&continue=https://mail.google.com/mail/?tab%3Dwm&scc=1&ltmpl=default&ltmplcache=2&emr=1&osid=1" class="icon fa-envelope" style="text-decoration:none;"><span class="label"></span></a></li>
+                            <li><a href="https://login.yahoo.com/?.src=ym&.intl=us&.lang=en-US&.done=https%3a//mail.yahoo.com" class="icon fa-yahoo" style="text-decoration:none; "><span class="label"></span></a></li>
+                            <li><a href="https://twitter.com/?lang=en" class="icon fa-twitter" style="text-decoration:none; "><span class="label"></span></a></li>
+
+                        </ul>
+
+
+                    </section>
+                    <p class="copyright" style="color: #a8a8bf">
+                        &copy; 2016 &nbsp;<a href="#" style="color: #a8a8bf; ">Med-Deliver </a>.
+                    </p>
+                </div>
+
+                <div>
+                    <section>
+                        <h2>Feed Back</h2>
+                        <form method="post" action="#">
+                            <div class="field half first">
+                                <input type="text" name="name" id="name" placeholder="Name" />
+                            </div>
+                            <div class="field half">
+                                <input type="text" name="email" id="email" placeholder="Email" />
+                            </div>
+                            <div class="field">
+                                <textarea name="message" id="message" rows="4" placeholder="Message"></textarea>
+                            </div>
+                            <ul class="actions">
+                                <li><input type="submit" value="Send" class="special" /></li>
+                                <li><input type="reset" value="Reset" /></li>
+                            </ul>
+                        </form>
+
+                    </section>
+                </div>
+            </div>
+        </footer>
+
+    </div>
+    <div class="md-modal md-effect-13" id="modal-13">
+        <div class="md-content">
+
+            <h1 style="color: white; font-family: 'Adobe Kaiti Std'; margin-left: 37%; font-size: 200%">LogIn</h1>
+            <input type="email" placeholder=" E-mail Address" style="height: 40px; width: 74%; font-family: Gabriola; font-size: 22px; background: rgba(255, 255, 255, 0.66); border-radius: 5px; margin-top: 10px; margin-right: 5px; margin-left: 13%;" /><br />
+            <input type="password" placeholder="Password" style="font-family: Gabriola; font-size: 22px; background: rgba(255, 255, 255, 0.66); border-radius: 5px; height: 40px; width: 74%; margin-right: 5px; margin-left: 13%; margin-top: 10px; " /><br /><br />
+            <a href="#" onmouseover="this.style.color='#94b8b8'" onmouseout="this.style.color='#fff'" style=" font-family: 'Adobe Kaiti Std';color:whitesmoke; text-decoration: none; margin-left: 16%; ">Forget Password?</a><br /><br />
+            <button class="btn btn-lg " type="button" style=" margin-left: 34%; width: auto; height: 40px;  font-family: 'Adobe Kaiti Std'; font-size: 130%; margin-bottom: 20px;"><a href="/User/Userlogin" onmouseover="this.style.color='#94b8b8'" onmouseout="this.style.color='#fff'" style="color: #fff; text-decoration: none; ">Log In</a></button>
+            <div class="md-close" id="close_popup_div"><p>x</p></div>
+
+        </div>
+    </div>
+
+    <script src="~/Scripts/classie.js"></script>
+    <script src="~/Scripts/modalEffects.js"></script>
+
+    <script>
+        // this is important for IEs
+        var polyfilter_scriptpath = '/js/';
+    </script>
+
+    <!-- <div id="popup_bgg">
+
+         <div id="popup_mainn_div">
+             <h1 style="color: white; font-family: 'Adobe Kaiti Std'; margin-left: 40%; font-size: 200%;"><b>Sign Up</b></h1>
+             <input type="text" placeholder="First Name" id="fname" style="height: 40px; width: 40%; font-family:Gabriola; font-size: 22px; border-radius: 5px; margin-top: 10px; margin-right: 5px;margin-left:8%; " />
+             <input type="text" placeholder="Last Name" id="lname" style="height: 40px; width: 40%;  font-family: Gabriola; font-size: 22px; border-radius: 5px; margin-top: 10px; margin-right: 5px;; " /><br />
+             <input type="tel" placeholder="Phone Number" id="num1" style="height: 40px; width: 40%; font-family: Gabriola; font-size: 22px; border-radius: 5px; margin-top: 10px; margin-right: 5px; margin-left: 8%; " />
+             <input type="tel" placeholder="Alt Phone Number" id="num2" style="height: 40px; width: 40%; font-family: Gabriola; font-size: 22px; border-radius: 5px; margin-top: 10px; margin-right: 5px; " /><br />
+             <input type="email" placeholder=" E-mail Address" id="mail" style="height: 40px; width: 81.3%; font-family: Gabriola; font-size: 22px; border-radius: 5px; margin-top: 10px; margin-right: 5px; margin-left: 8%; " /><br />
+             <input type="password" placeholder="Password" id="pass" style="height: 40px; width: 40%; margin-top: 10px; font-family: Gabriola; font-size: 22px; border-radius: 5px; margin-right: 5px; margin-left: 8%; " />
+             <input type="password" placeholder="Re-enter Password" id="repass" style="height: 40px; width: 40%;   font-family: Gabriola; font-size: 22px; border-radius: 5px; margin-top: 10px; margin-right: 5px; " /><br />
+             <input type="date" placeholder="date" id="date" style="height: 40px; width: 81.3%; border-radius: 5px; font-family: Gabriola; font-size: 22px; margin-top: 10px; margin-right: 5px; margin-left: 8%; " />
+             <br />
+             <p style="color: white; font-size: 20px; font-family: 'Adobe Kaiti Std'; margin-left: 10px; margin-top: 5px; ">
+                 <input type="radio" id="male" style=" margin-top: 10px; margin-left: 38%;" />&nbsp;Male
+                 <input type="radio" id="female" style="margin-left: 5%; " />&nbsp;Female
+             </p>
+             <button class="btn btn-lg  " type="button" style="margin-left: 41%; width: auto; height: 40px; color: #fff; font-family: 'Adobe Kaiti Std';margin-bottom:20px; ">Sign Up</button>
+             <div id="close_popup_div" title="Close" onclick="ClosePopupMenuu()">
+                 <p style="color:white;">
+                     X
+                 </p>
+             </div>
+         </div>
+     </div>
+     <script type="text/javascript">
+         var popuppDiv = document.getElementById("popup_bgg");
+         function OpenPopupMenuu() {
+             popuppDiv.style.display = "block";
+         }
+         function ClosePopupMenuu() {
+             popuppDiv.style.display = "none";
+         }
+     </script>-->
+    <div class="md-modal md-effect-14" id="modal-14">
+        <div class="md-contentt">
+
+            <h1 style="color: white; font-family: 'Adobe Kaiti Std'; margin-left: 40%; font-size: 200%;"><b>Sign Up</b></h1>
+            <form action="/Home/signup" method="post">
+                <input type="text" name="First_Name" placeholder="First Name" id="fname" required style="height: 40px; width: 40%; font-family: Gabriola; font-size: 22px; background: rgba(255, 255, 255, 0.66); border-radius: 5px; margin-top: 10px; margin-right: 5px; margin-left: 8%; " />
+                <input type="text" name="Last_Name" placeholder="Last Name" id="lname" required style="height: 40px; width: 40%; font-family: Gabriola; font-size: 22px; background: rgba(255, 255, 255, 0.66); border-radius: 5px; margin-top: 10px; margin-right: 5px; " /><br />
+                <input type="text" name="User_Name" placeholder="User Name" id="lname" required style="height: 40px; width: 40%; font-family: Gabriola; font-size: 22px; background: rgba(255, 255, 255, 0.66); border-radius: 5px; margin-top: 10px; margin-right: 5px; margin-left: 8%; " />
+                <input type="text" name="Occupation" placeholder="Occupation" id="lname" required style="height: 40px; width: 40%; font-family: Gabriola; font-size: 22px; background: rgba(255, 255, 255, 0.66); border-radius: 5px; margin-top: 10px; margin-right: 5px;" /><br />
+                <input type="tel" name="Contact_No" placeholder="Phone Number" id="num1" required style="height: 40px; width: 40%; font-family: Gabriola; font-size: 22px; background: rgba(255, 255, 255, 0.66); border-radius: 5px; margin-top: 10px; margin-right: 5px; margin-left: 8%; " />
+                <input type="tel" name="Alt_No" placeholder="Alt Phone Number" id="num2" required style="height: 40px; width: 40%; font-family: Gabriola; font-size: 22px; background: rgba(255, 255, 255, 0.66); border-radius: 5px; margin-top: 10px; margin-right: 5px; " /><br />
+                <input type="email" name="Email" placeholder=" E-mail Address" id="mail" required style="height: 40px; width: 81.3%; font-family: Gabriola; font-size: 22px; background: rgba(255, 255, 255, 0.66); border-radius: 5px; margin-top: 10px; margin-right: 5px; margin-left: 8%; " /><br />
+                <input type="password" name="Password" placeholder="Password" id="pass" required style="height: 40px; width: 40%; margin-top: 10px; font-family: Gabriola; font-size: 22px; background: rgba(255, 255, 255, 0.66); border-radius: 5px; margin-right: 5px; margin-left: 8%; " />
+                <input type="password" name="Password" placeholder="Re-enter Password" required id="repass" style="height: 40px; width: 40%; font-family: Gabriola; font-size: 22px; background: rgba(255, 255, 255, 0.66); border-radius: 5px; margin-top: 10px; margin-right: 5px; " /><br />
+                <input type="date" name="D_O_B" placeholder="date" id="date" required style="height: 40px; width: 81.3%; border-radius: 5px; font-family: Gabriola; font-size: 22px; background: rgba(255, 255, 255, 0.66); margin-top: 10px; margin-right: 5px; margin-left: 8%; " />
+                <br />
+                <div class="radio"  style="color: white; font-size: 20px; font-family: 'Adobe Kaiti Std'; margin-left: 35%; margin-top: 5px; ">
+                    <label>
+                        <input type="radio" name="Gender" value="male" required /> Male
+                    </label>
+
+                    <label>
+                        <input type="radio" name="Gender" value="female" required /> Female
+                    </label>
+                </div>
+
+                <button class="btn btn-lg  " type="submit" style="margin-left: 41%; width: auto; height: 40px; color: #fff; font-family: 'Adobe Kaiti Std';margin-bottom:20px; ">Sign Up</button>
+            </form>
+            <div class="md-close" id="close_popup_div"><p>x</p></div>
+
+</div>
+    </div>
+
+    <script src="~/Scripts/classie.js"></script>
+    <script src="~/Scripts/modalEffects.js"></script>
+
+    <script>
+        // this is important for IEs
+        var polyfilter_scriptpath = '/js/';
+    </script>
+
+
+    <div class="md-modal md-effect-15" id="modal-15">
+        <div class="md-content2">
+
+            <h2 class="major"><br />Services</h2>
+            <img src="/images/ser2.jpg" style="border-radius: 4px; height: 150px; width: 93%; margin-left: 2.0rem; " />
+            <p class="major">
+                <br /> Our application is about the delivery of medicines. This service is an alternative way for user to receive your/your child’s medicine supply.
+                Medicines will be delivered to you at preferred addresses. Our application also include the list of medicines that are provided by the nearest medical store.
+                It's also include a function named <a class="major" href="#">EMERGENCY ORDER</a>...
+                Through that service it will deliver you the medicine in most possible time duration as soon as possible.<br /><br />
+                We will deliver medicines in the medical stores of the following areas:<br /><br />
+
+                <button style="width:31%;height:35px;margin-left:1.5%;">Chaburji</button>
+                <button style="width: 31%; height: 35px; margin-left: 1.5%; ">Gulshan Ravi</button>
+
+                <button style="width: 31%; height: 35px; margin-left: 1.5%; ">Samnabad</button>
+            </p>
+            <div class="md-close" id="close_popup_div"><p>x</p></div>
+
+        </div>
+    </div>
+
+    <script src="~/Scripts/classie.js"></script>
+    <script src="~/Scripts/modalEffects.js"></script>
+
+    <script>
+        // this is important for IEs
+        var polyfilter_scriptpath = '/js/';
+    </script>
+
+
+    <div class="md-modal md-effect-16" id="modal-16">
+        <div class="md-content3">
+            <h2 class="major"><br />About</h2>
+            <h3 style="margin-left: 3%">Here We Are:</h3>
+            <img src="/images/About.jpg" style="border-radius: 4px;height:150px;width:97%;margin-left:1rem;background-color:rgba(255, 255, 255, 0.66);">
+            <p class="major">
+                Pakistan has a very vibrant and forward looking Pharma Industry. The pharmaceutical industry in Pakistan has grown during the last few decades. It is a novel concept of PHARMACY-ON-WHEELS that brings genuine medicines at the best prices to the comfort of your home. Therefore, it is an online medical delivery system with a mission to provide integrated pharmacy services with convenience and quality seamlessly across the nation. With a payment facility of Cash-on-Delivery.These medicines are procured directly from the registered medical stores or their authorized channels to ensure that consumers are not faced with any problems due to fake medication received via unofficial channels.our application.
+                MED-DELIVER will cover the major issues that occur in the field of medicines like, Heavy traffic ,lack of parking, monsoons, shop closed, forgetfulnes etc.
+                these are some of the reasons that could lead to skipping of vital medications.Just log on to MED-DELIVER, place your order online and have your medicines that we delivered to you without leaving the comfort of your home.
+            </p>
+            <div class="md-close" id="close_popup_div"><p>x</p></div>
+
+        </div>
+    </div>
+
+    <script src="~/Scripts/classie.js"></script>
+    <script src="~/Scripts/modalEffects.js"></script>
+
+    <script>
+        // this is important for IEs
+        var polyfilter_scriptpath = '/js/';
+    </script>
+
+
+    <div class="md-modal md-effect-17" id="modal-17">
+        <div class="md-content4">
+            <h2 class="major"><br />Order</h2>
+            <img src="/images/oderr.png" style="border-radius: 4px; height: 150px; width: 97%; margin-left: 1rem; background-color: rgba(255, 255, 255, 0.66); "> <p class=" major">
+                To order medicine through MED-DELIVER is very easy and convenient to use.
+                To order medicines through MED-DELIVER.<br /> Follow the steps<br />
+                For Order <a class="md-trigger" data-modal="modal-18" href="#">Click Here......</a><br /><br />
+                Search your desire medicine,  application will show you the nearest medical store who are providing your desired medicines. Place your order and get your medicines in most appropriate manner.
+            </p>
+            <div class="md-close" id="close_popup_div"><p>x</p></div>
+
+        </div>
+    </div>
+
+    <script src="~/Scripts/classie.js"></script>
+    <script src="~/Scripts/modalEffects.js"></script>
+
+    <script>
+        // this is important for IEs
+        var polyfilter_scriptpath = '/js/';
+    </script>
+
+
+
+
+    <div class="md-modal md-effect-18" id="modal-18">
+        <div class="md-content5">
+            <br />
+            <p style="margin-left:5%">If u Have An Account...</p>
+            <button class="md-trigger" data-modal="modal-13" style=" height: 35px; border-radius: 20px; text-align: center; margin-left:10%;">Sgin In</button><br /><p style="margin-left:5%">Otherwise...</p>
+            <button class="md-trigger" data-modal="modal-14" style=" height: 35px; margin-top: 5px; border-radius: 20px; text-align: center; margin-left: 10%;">Sgin Up</button><br /><br />
+            <div class="md-close" id="close_popup_div"><p>x</p></div>
+
+        </div>
+    </div>
+
+    <script src="~/Scripts/classie.js"></script>
+    <script src="~/Scripts/modalEffects.js"></script>
+
+    <script>
+        // this is important for IEs
+        var polyfilter_scriptpath = '/js/';
+    </script>
+
+    <div class="md-modal md-effect-eo" id="modal-eo">
+        <div class="md-contenteo">
+
+            <h1 style="color: white; font-family: 'Adobe Kaiti Std'; margin-left: 30%; font-size: 200%;"><b>Emergency Order</b></h1>
+
+            <input type="text" placeholder="First Name" id="fname" style="height: 40px; width: 40%; font-family: Gabriola; font-size: 22px; background: rgba(255, 255, 255, 0.66); border-radius: 5px; margin-top: 10px; margin-right: 5px; margin-left: 8%; " />
+            <input type="text" placeholder="Last Name" id="lname" style="height: 40px; width: 40%; font-family: Gabriola; font-size: 22px; background: rgba(255, 255, 255, 0.66); border-radius: 5px; margin-top: 10px; margin-right: 5px;" /><br />
+            <input type="tel" placeholder="Phone Number" id="num1" style="height: 40px; width: 40%; font-family: Gabriola; font-size: 22px; background: rgba(255, 255, 255, 0.66); border-radius: 5px; margin-top: 10px; margin-right: 5px; margin-left: 8%; " />
+            <input type="tel" placeholder="Alt Phone Number" id="num2" style="height: 40px; width: 40%; font-family: Gabriola; font-size: 22px; background: rgba(255, 255, 255, 0.66); border-radius: 5px; margin-top: 10px; margin-right: 5px; " /><br />
+            <input type="email" placeholder=" Address" id="mail" style="height: 40px; width: 81.3%; font-family: Gabriola; font-size: 22px; background: rgba(255, 255, 255, 0.66); border-radius: 5px; margin-top: 10px; margin-right: 5px; margin-left: 8%; " /><br />
+            <input type="password" placeholder="Password" id="pass" style="height: 40px; width: 40%; margin-top: 10px; font-family: Gabriola; font-size: 22px; background: rgba(255, 255, 255, 0.66); border-radius: 5px; margin-right: 5px; margin-left: 8%; " />
+            <input type="password" placeholder="E-mail Adress" id="repass" style="height: 40px; width: 40%; font-family: Gabriola; font-size: 22px; background: rgba(255, 255, 255, 0.66); border-radius: 5px; margin-top: 10px; margin-right: 5px; " /><br />
+            <input type="text" placeholder="Amount" id="amount" style="height: 40px; width: 40%; font-family: Gabriola; font-size: 22px; background: rgba(255, 255, 255, 0.66); border-radius: 5px; margin-top: 10px; margin-right: 5px; margin-left: 8%; " />
+            <select name="status" class="control" style="height: 40px; width: 40%; font-family: Gabriola; font-size: 22px; background: rgba(255, 255, 255, 0.66); border-radius: 5px; margin-top: 10px; margin-right: 5px;">
+                <option value=" ">Medicine Name</option>
+                <option>Panadol</option>
+                <option>Dispirine</option>
+                <option>Antibiotics</option>
+
+            </select>
+            <input type="date" placeholder="date" id="date" style="height: 40px; width: 81.3%; border-radius: 5px; font-family: Gabriola; font-size: 22px; background: rgba(255, 255, 255, 0.66); margin-top: 10px; margin-right: 5px; margin-left: 8%; " />
+            <br />
+            <div class="radio" style="color: white; font-size: 20px; font-family: 'Adobe Kaiti Std'; margin-left: 35%; margin-top: 5px; ">
+                <label>
+                    <input type="radio" name="gender" value="male" /> Male
+                </label>
+
+                <label>
+                    <input type="radio" name="gender" value="female" /> Female
+                </label>
+            </div>
+
+            <button class="btn btn-lg  " type="button" style="margin-left: 41%; width: auto; height: 40px; color: #fff; font-family: 'Adobe Kaiti Std';margin-bottom:20px; ">Send</button>
+            <div class="md-close" id="close_popup_div"><p>x</p></div>
+
+        </div>
+    </div>
+
+    <script src="~/Scripts/classie.js"></script>
+    <script src="~/Scripts/modalEffects.js"></script>
+
+
+    <script>
+        // this is important for IEs
+        var polyfilter_scriptpath = '/js/';
+    </script>
+
+</body>
+</html>

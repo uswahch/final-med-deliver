@@ -1,0 +1,223 @@
+﻿@{
+    ViewBag.Title = "OrderInvoices";
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+}
+<div class="row">
+    <div class="col-xs-12" style="height:80px; width:100%"></div>
+</div>
+<div class="row">
+    <div class="col-xs-2"></div>
+    <div class="col-xs-10" style="width: 75%; background-color: black;margin-right:0">
+        <h1>Admin Panel<span class="icon fa-angle-double-left"></span>Order Invoices</h1>
+        <ul>
+            <li style="color: black">
+                <input type="text" placeholder="Search By Medicines" id="Medname" style="height: 40px; width: 20%; border-radius: 5px; font-family: Gabriola; font-size: 22px; margin-top: 10px; " />
+                <button><span class="icon fa-search"></span></button>
+
+                <input type="text" placeholder="Search By UserName" id=" uname" style="height: 40px; width: 20%; border-radius: 5px; font-family: Gabriola; font-size: 22px; margin-top: 10px; " />
+                <button><span class="icon fa-search"></span></button>
+
+</li>
+
+
+</ul>
+        <ul class="nav nav-tabs">
+            <!--<li class="active"><a data-toggle="tab" href="#home" style="color:gray;">Form</a></li> -->
+            <li><a data-toggle="tab" href="#menu1" style="color: gray;">Invoices List</a></li>
+        </ul>
+        <div class="container bottombar">
+            <div class="tab-content">
+                <!--<div id="home" class="tab-pane fade in active ">
+                    <form class="well form-horizontal" action=" " method="post" id="contact_form" style="margin-top:10px;width:92%;background-color:black">
+                        <fieldset>
+
+
+
+                            <div class="form-group">
+                                     <label class="col-sm-3 control-label"></label>
+                                     <div class="col-sm-4" style="margin-top:3px;">
+                                         <input type="text" class="form-control" name="storename" placeholder="Store Name"
+                                                data-fv-row=".col-sm-4"
+                                                data-fv-notempty="true"
+                                                data-fv-notempty-message="The Store Name is required" />
+                                     </div>
+
+                                     <div class="col-sm-4" style="margin-top:3px;">
+                                         <input type="text" class="form-control" name="ownername" placeholder="Owner name"
+                                                data-fv-row=".col-sm-4"
+                                                data-fv-notempty="true"
+                                                data-fv-notempty-message="The Owner Name is required" />
+                                     </div>
+                                 </div>
+                                 <div class="form-group">
+                                     <label class="col-sm-3 control-label"></label>
+                                     <div class="col-sm-4" style="margin-top:3px;">
+                                         <input type="text" class="form-control" name="email" placeholder="E-mail"
+                                                data-fv-notempty="true"
+                                                data-fv-notempty-message="The email address is required"
+                                                data-fv-emailaddress="true"
+                                                data-fv-emailaddress-message="The input is not a valid email address" />
+                                     </div>
+
+                                     <div class="col-sm-4" style="margin-top:3px;">
+                                         <select name="status" class="control" style="background-color:#333;">
+                                             <option value=" ">Availability:</option>
+                                             <option>Pain Killer</option>
+                                             <option>Headach</option>
+                                             <option>Antibiotics</option>
+
+                                         </select>
+                                     </div>
+                                 </div>
+
+                                 <div class="form-group">
+                                     <label class="col-sm-3 control-label"></label>
+                                     <div class="col-sm-4" style="margin-top:3px;">
+                                         <input type="text" class="form-control" name="email" placeholder="Contact Number"
+                                                data-fv-notempty="true"
+                                                data-fv-notempty-message="The Contact Number is required" />
+                                     </div>
+                                     <label class="col-sm-3 control-label"></label>
+                                     <div class="col-sm-4" style="margin-top:3px;">
+                                         <textarea class="form-control" name="location" id="message" placeholder="Location" rows="6" style="background-color:#333;"
+                                                   data-fv-notempty="true"
+                                                   data-fv-notempty-message="The Address is required"></textarea>
+
+                                     </div>
+
+                                 </div><br />
+                                 <div class="form-group">
+                                     <label class="col-sm-3 control-label"></label>
+                                     <div class="col-sm-4" style="margin-top:-12%; ">
+                                         <select name="status" class="control" style="background-color:#333;">
+                                             <option value=" ">Status:</option>
+                                             <option>Pending</option>
+                                             <option>Delivered</option>
+                                             <option>Cancel</option>
+
+                                         </select>
+                                     </div>
+                                 </div>
+
+
+                                 <div class="form-group">
+                                     <div class="col-sm-6 col-sm-offset-3" style="margin-top:-7%;">
+                                         <div class="checkbox">
+                                             <label>
+                                                 <input type="checkbox" name="agree" value="agree"
+                                                        data-fv-notempty="true"
+                                                        data-fv-notempty-message="You must agree with the terms and conditions" /> Agree with the terms and conditions
+                                             </label>
+                                         </div>
+                                     </div>
+                                 </div>
+
+                                 <div class="form-group">
+                                     <div class="col-xs-9 col-xs-offset-3" style="margin-left:50%;">
+                                         <button type="submit" style="background-color:rgba(49, 50, 49, 0.66)" name="signup" value="Sign up">Submit</button>
+                                     </div>
+                                 </div>
+
+
+                                 <script>
+                                     // Check the captcha
+                                     function checkCaptcha(value, validator, $field) {
+                                         var items = $('#captchaOperation').html().split(' '),
+                                             sum = parseInt(items[0]) + parseInt(items[2]);
+                                         return value == sum;
+                                     }
+
+                                     $(document).ready(function () {
+                                         // Generate a simple captcha
+                                         function randomNumber(min, max) {
+                                             return Math.floor(Math.random() * (max - min + 1) + min);
+                                         }
+                                         $('#captchaOperation').html([randomNumber(1, 100), '+', randomNumber(1, 200), '='].join(' '));
+
+                                         $('#basicBootstrapForm').formValidation();
+                                     });
+                                 </script>
+                          </fieldset>
+                    </form>
+                </div>
+
+                            -->
+                <!-- <select>
+                    <option>Delivered</option>
+                    <option>Not Delivered</option>
+                    <option>Pending</option>
+                    <option>Cancel</option>
+                </select-->
+
+
+
+
+
+                <div id="menu1" class="tab-pane fade in active">
+                    <div style="overflow:scroll; width:87%; height:250px;">
+                        <div class="row ">
+                            <div class="col-xs-12">
+                                <table class="table table-fixed" style="margin-top: 10px; height: auto; background-color: rgba(41, 43, 43, 0.59);">
+                                    <thead>
+                                        <tr>
+                                            <th>#</th>
+                                            <th>User Name</th>
+                                            <th>Medicine Name</th>
+                                            <th>Amount Of Medicine</th>
+                                            <th>Price Per One</th>
+                                            <th>Total Price</th>
+                                            <th>Date</th>
+                                            <th>Operation</th>
+                                        </tr>
+                                        <tr>
+                                            <td>1</td>
+                                            <td>zeshan</td>
+                                            <td>panadoll</td>
+                                            <td>2</td>
+                                            <td>10 RS</td>
+                                            <td>20Rs</td>
+                                            <td>2-1-16</td>
+                                            <td class="dropdown">
+                                                <button class="btn btn-block dropdown-toggle" type="button" data-toggle="dropdown">
+                                                    Option
+                                                    <span class="caret"></span>
+                                                </button>
+                                                <ul class="dropdown-menu" style="background-color: rgba(49, 50, 49, 0.9);">
+                                                    <li><a class=" md-trigger" data-modal="modal-31" href="#" style="color:white"> Update</a></li>
+                                                    <li><a href="#" style="color:white">Delete</a></li>
+                                                </ul>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>1</td>
+                                            <td>zeshan</td>
+                                            <td>panadoll</td>
+                                            <td>2</td>
+                                            <td>10 RS</td>
+                                            <td>20Rs</td>
+                                            <td>2-1-16</td>
+                                            <td class="dropdown">
+                                                <button class="btn btn-block dropdown-toggle" type="button" data-toggle="dropdown">
+                                                    Option
+                                                    <span class="caret"></span>
+                                                </button>
+                                                <ul class="dropdown-menu" style="background-color: rgba(49, 50, 49, 0.9);">
+                                                    <li><a class=" md-trigger" data-modal="modal-31" href="#" style="color:white"> Update</a></li>
+                                                    <li><a href="#" style="color:white">Delete</a></li>
+                                                </ul>
+                                            </td>
+                                        </tr>
+
+                                    </thead>
+                                    <tbody></tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+
+
+                </div>
+            </div>
+
+        </div>
+    </div>

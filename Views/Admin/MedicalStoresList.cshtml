@@ -1,0 +1,273 @@
+﻿@{
+    ViewBag.Title = "MedicalStoresList";
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+}
+
+<div class="row">
+    <div class="col-xs-12" style="height:80px; width:100%"></div>
+</div>
+<div class="row">
+    <div class="col-xs-2"></div>
+    <div class="col-xs-10" style="width: 75%; background-color: black;margin-right:0">
+        <h1>Admin Panel<span class="icon fa-angle-double-left"></span>Medical Stores List</h1>
+        <ul>
+            <li style="color: black">
+                <input type="text" placeholder="Search By StoreName" id="storename" style="height: 40px; width: 20%; border-radius: 5px; font-family: Gabriola; font-size: 22px; margin-top: 10px; " />
+                <button><span class="icon fa-search"></span></button>
+
+                <input type="text" placeholder="Search By Store Location " id=" slocation" style="height: 40px; width: 23%; border-radius: 5px; font-family: Gabriola; font-size: 22px; margin-top: 10px; " />
+                <button><span class="icon fa-search"></span></button>
+
+                <input type="text" placeholder="Search By License Number " id="licenseno" style="height: 40px; width: 24%; border-radius: 5px; font-family: Gabriola; font-size: 22px; margin-top: 10px; " />
+                <button><span class="icon fa-search"></span></button>
+</li>
+</ul>
+        <ul class="nav nav-tabs">
+            <li class="active"><a data-toggle="tab" href="#home" style="color:gray;">Add New</a></li>
+            <li><a data-toggle="tab" href="#menu1" style="color: gray;">MedicalStores List</a></li>
+        </ul>
+        <div class="container ">
+            <div class="tab-content">
+                <div id="home" class="tab-pane fade in active ">
+                    <form class="well form-horizontal" action=" " method="post" id="contact_form" style="margin-top: 10px; width: 87%; background-color: rgba(41, 43, 43, 0.59);">
+                        <fieldset>
+
+
+
+                            <div class="form-group">
+                                <label class="col-sm-3 control-label"></label>
+                                <div class="col-sm-4" style="margin-top:3px;">
+                                    <input type="text" class="form-control" name="storename" placeholder="Store Name"
+                                           data-fv-row=".col-sm-4"
+                                           data-fv-notempty="true"
+                                           data-fv-notempty-message="The Store Name is required" />
+                                </div>
+
+                                <div class="col-sm-4" style="margin-top:3px;">
+                                    <input type="text" class="form-control" name="ownername" placeholder="Owner name"
+                                           data-fv-row=".col-sm-4"
+                                           data-fv-notempty="true"
+                                           data-fv-notempty-message="The Owner Name is required" />
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="col-sm-3 control-label"></label>
+                                <div class="col-sm-4" style="margin-top:3px;">
+                                    <input type="text" class="form-control" name="licenseno" placeholder="License Number"
+                                           data-fv-row=".col-sm-4"
+                                           data-fv-notempty="true"
+                                           data-fv-notempty-message="The Store Name is required" />
+                                </div>
+
+                                <div class="col-sm-4" style="margin-top:3px;">
+                                    <input type="text" class="form-control" name="license" placeholder="License Owner name"
+                                           data-fv-row=".col-sm-4"
+                                           data-fv-notempty="true"
+                                           data-fv-notempty-message="The Owner Name is required" />
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="col-sm-3 control-label"></label>
+                                <div class="col-sm-4" style="margin-top:3px;">
+                                    <input type="text" class="form-control" name="email" placeholder="E-mail"
+                                           data-fv-notempty="true"
+                                           data-fv-notempty-message="The email address is required"
+                                           data-fv-emailaddress="true"
+                                           data-fv-emailaddress-message="The input is not a valid email address" />
+                                </div>
+                                <div class="col-sm-4" style="margin-top:3px;">
+                                    <input type="text" class="form-control" name="availability" placeholder=" Time Availability"
+                                           data-fv-notempty="true"
+                                           data-fv-notempty-message="The Time Availabilityis required" />
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="col-sm-3 control-label"></label>
+                                <div class="col-sm-4" style="margin-top:3px;">
+                                    <input type="text" class="form-control" name="num" placeholder="Contact Number"
+                                           data-fv-row=".col-sm-4"
+                                           data-fv-notempty="true"
+                                           data-fv-notempty-message="The Contact Number is required" />
+                                </div>
+                                <div class="col-sm-4" style="margin-top:3px;">
+                                    <input type="text" class="form-control" name="num" placeholder="Order Duration"
+                                           data-fv-row=".col-sm-4"
+                                           data-fv-notempty="true"
+                                           data-fv-notempty-message="The Order Duration is required" />
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <label class="col-sm-3 control-label"></label>
+                                <div class="col-sm-4" style="margin-top:3px;">
+                                    <textarea class="form-control" name="slocation" id="message" placeholder="Store Location" rows="3" style="background-color:#333;"
+                                              data-fv-notempty="true"
+                                              data-fv-notempty-message="The Address is required"></textarea>
+
+                                </div>
+                                <label class="col-sm-3 control-label"></label>
+                                <div class="col-sm-4" style="margin-top:3px;">
+                                    <textarea class="form-control" name="dlocation" id="message" placeholder="Delivery Location" rows="3" style="background-color:#333;"
+                                              data-fv-notempty="true"
+                                              data-fv-notempty-message="The Address is required"></textarea>
+
+                                </div>
+
+                            </div><br /><br /><br />
+
+
+
+                            <div class="form-group">
+                                <div class="col-sm-6 col-sm-offset-3" style="margin-top:-7%;">
+                                    <div class="checkbox">
+                                        <label>
+                                            <input type="checkbox" name="agree" value="agree"
+                                                   data-fv-notempty="true"
+                                                   data-fv-notempty-message="You must agree with the terms and conditions" /> Agree with the terms and conditions
+                                        </label>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <div class="col-xs-9 col-xs-offset-3" style="margin-left:50%;">
+                                    <button type="submit" style="background-color:rgba(49, 50, 49, 0.66)" name="signup" value="Sign up">Submit</button>
+                                </div>
+                            </div>
+
+
+                            <script>
+                                // Check the captcha
+                                function checkCaptcha(value, validator, $field) {
+                                    var items = $('#captchaOperation').html().split(' '),
+                                        sum = parseInt(items[0]) + parseInt(items[2]);
+                                    return value == sum;
+                                }
+
+                                $(document).ready(function () {
+                                    // Generate a simple captcha
+                                    function randomNumber(min, max) {
+                                        return Math.floor(Math.random() * (max - min + 1) + min);
+                                    }
+                                    $('#captchaOperation').html([randomNumber(1, 100), '+', randomNumber(1, 200), '='].join(' '));
+
+                                    $('#basicBootstrapForm').formValidation();
+                                });
+                            </script>
+
+                        </fieldset>
+                    </form>
+                </div>
+
+
+
+
+
+
+
+                <div id="menu1" class="tab-pane fade bottombar">
+                    <div style="overflow:scroll; width:87%; height:250px;">
+                        <div class="row ">
+                            <div class="col-xs-12">
+                                <table class="table table-fixed" style="margin-top: 10px; width: 1500px; height: auto; background-color: rgba(41, 43, 43, 0.59);">
+                                    <thead>
+                                        <tr>
+                                            <th>#</th>
+                                            <th>Store Names</th>
+                                            <th>Owner Name</th>
+                                            <th>License Number</th>
+                                            <th>License Owner Name</th>
+                                            <th>E-mail</th>
+                                            <td>Time Availability</td>
+                                            <th>Contact No</th>
+                                            <th>Order Duration</th>
+                                            <th> store Location</th>
+                                            <th> Delivery Location</th>
+                                            <th>Operation</th>
+                                        </tr>
+                                        <tr>
+                                            <td>1</td>
+                                            <td>Clinx</td>
+                                            <td>Mahmood</td>
+                                            <td>42467936356</td>
+                                            <td>Tahir</td>
+                                            <td>c.mahmmod@gmail.com</td>
+                                            <td>yes open</td>
+                                            <td>42467936356</td>
+                                            <th>5hours</th>
+                                            <td>Chaburji</td>
+                                            <td>Chaburji , Samnabad</td>
+                                            <td class="dropdown">
+                                                <button class="btn btn-block dropdown-toggle" type="button" data-toggle="dropdown">
+                                                    Option
+                                                    <span class="caret"></span>
+                                                </button>
+                                                <ul class="dropdown-menu" style="background-color: rgba(49, 50, 49, 0.9);">
+                                                    <li><a data-toggle="tab" href="/Admin/MedicalStoresLisr/#home" style="color:white"> Update</a></li>
+                                                    <li><a href="#" style="color:white">Delete</a></li>
+                                                </ul>
+                                            </td>
+
+
+                                        </tr>
+                                        <tr>
+                                            <td>2</td>
+                                            <td>serveaid</td>
+                                            <td>danish</td>
+                                            <td>42467936356</td>
+                                            <td>Shezad</td>
+                                            <td>s.Danish@gmail.com</td>
+                                            <td>no open</td>
+                                            <td>42467936356</td>
+                                            <th>5hours</th>
+                                            <td>Samnabad</td>
+                                            <td>Samnabad. gulshan ravi</td>
+                                            <td class="dropdown">
+                                                <button class="btn btn-block dropdown-toggle" type="button" data-toggle="dropdown">
+                                                    Option
+                                                    <span class="caret"></span>
+                                                </button>
+                                                <ul class="dropdown-menu" style="background-color: rgba(49, 50, 49, 0.9);">
+                                                    <li><a data-toggle="tab" href="/Admin/MedicalStoresLisr/#home" style="color:white"> Update</a></li>
+                                                    <li><a href="#" style="color:white">Delete</a></li>
+                                                </ul>
+                                            </td>
+
+                                        </tr>
+                                        <tr>
+                                            <td>3</td>
+                                            <td>Al-Buraq</td>
+                                            <td>M.Raffy</td>
+                                            <td>42467936356</td>
+                                            <td>Buraq</td>
+                                            <td>Al-Buraq@gmail.com</td>
+                                            <td>yes open</td>
+                                            <td>42467936356</td>
+                                            <td>5 hours</td>
+                                            <td>samnabad</td>
+                                            <td>samnabad , SabzaZar</td>
+                                            <td class="dropdown">
+                                                <button class="btn btn-block dropdown-toggle" type="button" data-toggle="dropdown">
+                                                    Option
+                                                    <span class="caret"></span>
+                                                </button>
+                                                <ul class="dropdown-menu" style="background-color: rgba(49, 50, 49, 0.9);">
+                                                    <li><a data-toggle="tab" href="/Admin/MedicalStoresLisr/#home" style="color:white"> Update</a></li>
+                                                    <li><a href="#" style="color:white">Delete</a></li>
+                                                </ul>
+                                            </td>
+
+                                        </tr>
+
+                                    </thead>
+                                    <tbody></tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>
